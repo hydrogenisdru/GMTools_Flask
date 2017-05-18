@@ -1,0 +1,20 @@
+{% set active_page = 'login' %}
+{% extends 'form.html' %}
+{#{% import "bootstrap/wtf.html" as wtf %}#}
+{% block page_content %}
+    {#    {{ wtf.quick_form(form) }}#}
+    <form class="form-signin" method="post" name="login">
+        {{ form.hidden_tag() }}
+        <h2 class="form-signin-heading">Please login</h2>
+        <label for="inputUser" class="sr-only">User</label>
+        <input type="text" id="userName" name="userName" class="form-control" placeholder="User" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+            <label>
+                <input id="rememberMe" name="rememberMe" type="checkbox" value="y"> remember-me
+            </label>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" id="submit" name="submit" type="submit" value="login">
+    </form>
+{% endblock %}

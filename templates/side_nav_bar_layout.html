@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% set side_nav_bar = [
+    (url_for('server_console'), 'overview', 'overview'),
+    (url_for('server_report'), 'report', 'report'),
+    (url_for('server_gm_tools'), 'gm tools', 'gm tools'),
+] %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+    {% block side_nav_bar %}
+        <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div id="navbar" class="navbar-collapse collapse">
+                        {% for href, id, caption in side_nav_bar %}
+                            <ul class="nav nav-sidebar">
+                                <li class="{% if id == active_side_nav_bar %}active{% endif %}">
+                                    <a href="{{ href|e }}">{{ caption|e }}</a></li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">{{ active_side_nav_bar|e }}</h1>
+                    <div class="row placeholders">
+                        {% for id, hidden in placeholder %}
+                            <div class="col-xs-6 col-sm-3 placeholder">
+                                <li>
+                                    <span class="{{ id|e }}" aria-hidden="{{ hidden|e }}"></span>
+                                </li>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
