@@ -1,9 +1,4 @@
 {% extends 'layout.html' %}
-{% set side_nav_bar = [
-    (url_for('server_console'), 'overview', 'overview'),
-    (url_for('server_report'), 'report', 'report'),
-    (url_for('server_gm_tools'), 'gm tools', 'gm tools'),
-] %}
 {% block styles %}
     {{ super() }}
     <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet">
@@ -33,6 +28,9 @@
                             </div>
                         {% endfor %}
                     </div>
+                    {% block main_content %}
+
+                    {% endblock %}
                 </div>
             </div>
         </div>

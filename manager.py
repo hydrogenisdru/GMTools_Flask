@@ -2,7 +2,7 @@
 import os
 
 from flask_script import Manager, Shell
-from gm_tools_application import create_app
+from gm_application import create_app
 
 config_name = os.getenv('FLASK_CONFIG') or 'default'
 app = create_app(config_name)

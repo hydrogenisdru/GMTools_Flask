@@ -30,10 +30,11 @@
                             <a href="{{ href|e }}">{{ caption|e }}</a></li>
                     {% endfor %}
                     {% if current_user.is_authenticated %}
-                        {% if 'server_console' == active_page %}
-                            <li class=" active"><a href="{{ url_for('server_console') }}">server console</a></li>
-                            <li><a href="{{ url_for('logout') }}">logout</a></li>
-                        {% endif %}
+                        <li class=" {% if 'server_console' == active_page %}active{% endif %}">
+                            <a href="{{ url_for('server_console') }}">server console</a></li>
+                        <li class=" {% if 'gm_tools' == active_page %}active{% endif %}">
+                            <a href="{{ url_for('gm_tools') }}">gm tools</a></li>
+                        <li><a href="{{ url_for('logout') }}">logout</a></li>
                     {% else %}
                         <li class=" {% if 'login' == active_page %}active{% endif %}">
                             <a href="{{ url_for('login') }}">login</a></li>

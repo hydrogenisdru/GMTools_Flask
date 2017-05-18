@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from form import *
 from manager import app
-from gm_tools_application import login_manager, mongo
+from gm_application import login_manager, mongo
 from models import User
 
 
@@ -59,10 +59,16 @@ def server_report():
     return render_template('server_report.html')
 
 
-@app.route('/server_console/gmtools')
+@app.route('/gmtools')
 @login_required
-def server_gm_tools():
-    return render_template('server_gm_tools.html')
+def gm_tools():
+    return redirect(url_for('gm_tools_overview'))
+
+
+@app.route('/gmtools/overview')
+@login_required
+def gm_tools_overview():
+    return render_template('gm_tools_overview.html')
 
 
 @login_manager.user_loader
