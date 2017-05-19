@@ -1,0 +1,58 @@
+{% set active_page = 'gm_tools' %}
+{% set active_side_nav_bar = 'account manage' %}
+{% extends 'gm_tools_layout.html' %}
+{% set button_set = [
+('#exampleModal','modal1','Open modal 1'),
+('#exampleModal','modal2','Open modal 2'),
+] %}
+{% block main_content %}
+    {% for modal,name,message in button_set %}
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="{{ modal|e }}"
+                    data-whatever="{{ name|e }}">
+                {{ message|e }}
+            </button>
+        </div>
+    {% endfor %}
+    {% block pop_up %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" name="signup">
+                            {{ form.csrf_token }}
+                            <div class="form-group">
+                                <label for="userName" class="control-label">User Name:</label>
+                                <input type="text" class="form-control" id="userName" placeholder="User" required
+                                       autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">Password:</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_pwd" class="control-label">Confirm Password:</label>
+                                <input type="password" class="form-control" id="confirm_pwd" placeholder="Password"
+                                       required>
+                            </div>
+                            <input class="btn btn-lg btn-primary btn-block" id="submit" name="submit" type="submit"
+                                   value="signup">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='pop_up_form.js') }}"></script>
+{% endblock %}

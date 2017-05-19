@@ -26,6 +26,8 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        logout()
     form = LoginForm()
     if form.validate_on_submit():
         user = mongo.db.users.find_one({'userName': form.userName.data})
@@ -69,6 +71,19 @@ def gm_tools():
 @login_required
 def gm_tools_overview():
     return render_template('gm_tools_overview.html')
+
+
+@app.route('/gmtools/controls')
+@login_required
+def gm_tools_controls():
+    return render_template('gm_tools_controls.html')
+
+
+@app.route('/gmtools/manage')
+@login_required
+def gm_tools_account_manage():
+    form = SignUpForm()
+    return render_template('gm_tools_account_manage.html', form=form)
 
 
 @login_manager.user_loader
