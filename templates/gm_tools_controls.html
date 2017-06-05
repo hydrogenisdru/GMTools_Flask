@@ -2,15 +2,22 @@
 {% set active_side_nav_bar = 'controls' %}
 {% extends 'gm_tools_layout.html' %}
 {% block main_content %}
+    {% block flash_message %}
+        {{ super() }}
+    {% endblock %}
     <div class="row placeholders">
-        <div class="col-lg-6">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+        <form method="post" name="search_form" id="search_form">
+            {{ search_form.csrf_token }}
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input id="search-input" name="searchInfo" type="text" class="form-control"
+                           placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" type="button" onclick="queryPlayer()">Go!</button>
       </span>
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </form>
     </div><!-- /.row -->
 
     <h2 class="sub-header">Search result</h2>
@@ -18,24 +25,50 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
+                <th>Name</th>
+                <th>Uuid</th>
+                <th>SuspensionExpiredDate</th>
+                <th>Manage</th>
             </tr>
             </thead>
             <tbody>
-            {% for result in searchResults %}
+            {% for player in playerlist %}
                 <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
-                    <td>sit</td>
+                    <th>{{ player.userDesc|e }}</th>
+                    <th>{{ player.uuid|e }}</th>
+                    {% if player.suspensionExpiredDate %}
+                        <th>{{ player.suspensionExpiredDate|e }}</th>
+                    {% else %}
+                        <th>None</th>
+                    {% endif %}
+                    <th>
+                        <button type="button" class="btn btn-primary" onclick="openProfile('{{ player.uuid|e }}')">
+                            Edit
+                        </button>
+                    </th>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {{ pagination.links }}
     </div>
+    <div class="row placeholders">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="avtive">
+                <a href="#" class="dropdown-toggle" id="drop1" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Dropdown<span class="caret"></span></a>
+                <ul id="menu1" class="dropdown-menu" aria-labelledby="drop1">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+    </script>
+    <script src="{{ url_for('static', filename='dropdown.js') }}"></script>
 {% endblock %}

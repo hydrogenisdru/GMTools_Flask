@@ -4,6 +4,7 @@
     (url_for('index'), 'index', 'home'),
     (url_for('about'), 'about', 'about'),
 ] %}
+{% set authority_list = [('none','none'),('gm_1','gm_1'),('gm_2','gm_2'),('gm_3','gm_3')] %}
 {% block styles %}
     {{ super() }}
     <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -53,4 +54,50 @@
 
         {% endblock %}
     </div>
+{% endblock %}
+
+{% block flash_message %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>{{ message|e }}</strong>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block edit_account_form %}
+    <form method="post" name="edit_account" id="edit_account_form">
+        {{ edit_account_form.csrf_token }}
+        <div class="form-group">
+            <label for="userName" class="control-label">User Name:</label>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="User"
+                   required
+                   autofocus>
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label">Password:</label>
+            <input type="password" class="form-control" id="password" name="password"
+                   placeholder="Password"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_pwd" class="control-label">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirm_pwd" name="confirm_pwd"
+                   placeholder="Password"
+                   required>
+        </div>
+        <div class="form-group" id="authority_div">
+            <label for="authority" class="control-label">Change Authority:</label>
+            <select id="authority" name="authority" class="form-control" required>
+                {% for key,value in authority_list %}
+                    {% if key != 'none' %}
+                        <option value="{{ key|e }}">{{ value|e }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" id="submit" name="submit" type="submit"
+               value="summit">
+    </form>
 {% endblock %}

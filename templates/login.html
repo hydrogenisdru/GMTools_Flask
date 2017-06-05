@@ -3,6 +3,9 @@
 {#{% import "bootstrap/wtf.html" as wtf %}#}
 {% block page_content %}
     {#    {{ wtf.quick_form(form) }}#}
+    {% block flash_message %}
+        {{ super() }}
+    {% endblock %}
     <form class="form-signin" method="post" name="login">
         {{ form.hidden_tag() }}
         <h2 class="form-signin-heading">Please login</h2>

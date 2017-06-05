@@ -10,6 +10,11 @@ class Config:
     DEFAULT_USER = 'root'
     DEFAULT_PWD = '1234'
     DEFAULT_AUTH = 'admin'
+    MQ_IP_ADDRESS = 'localhost'
+    REDIS_URL = 'redis://:@localhost:6379/1'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost:3306/test'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    PAGE_SIZE = 10
 
     @staticmethod
     def init_app(app):
