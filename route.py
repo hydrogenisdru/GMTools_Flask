@@ -5,7 +5,7 @@ from flask_pymongo import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from form import *
-from gm_application import login_manager, mongo, redis_store, mqAdaptor
+from application import login_manager, mongo, redis_store, mqAdaptor
 from manager import app
 from models import User, PlayerInfo
 from proto import gmCmdPro_pb2
@@ -31,7 +31,7 @@ def login():
         logout()
     form = LoginForm()
     if form.validate_on_submit():
-        user = mongo.db.users.find_one({'userName': form.userName.data})
+        user = mongo.db.gm_users.find_one({'userName': form.userName.data})
         if user is not None and check_password_hash(user['password'], form.password.data):
             login_user(User(user), form.rememberMe.data)
             return redirect(request.args.get('next') or url_for('server_console'))
@@ -155,9 +155,10 @@ def test_mq():
     mqAdaptor.send(buf, 'GameServerQueue_4001')
     return True
 
+
 @login_manager.user_loader
 def load_user(user_id):
-    me = mongo.db.users.find_one({'_id': ObjectId(user_id)})
+    me = mongo.db.gm_users.find_one({'_id': ObjectId(user_id)})
     if me:
         return User(me)
     else:
@@ -165,31 +166,31 @@ def load_user(user_id):
 
 
 def add_user(user_name, password, authority):
-    if mongo.db.users.find_one({'userName': user_name}):
+    if mongo.db.gm_users.find_one({'userName': user_name}):
         return False
     else:
-        mongo.db.users.insert(
+        mongo.db.gm_users.insert(
             {'userName': user_name, 'password': generate_password_hash(password), 'authority': authority})
     return True
 
 
 def total_user():
-    return mongo.db.users.count()
+    return mongo.db.gm_users.count()
 
 
 def delete_user(user_id):
-    mongo.db.users.remove({'_id': ObjectId(user_id)})
+    mongo.db.gm_users.remove({'_id': ObjectId(user_id)})
 
 
 def user_collect_without_me(my_name, skip_num, page_size):
-    return mongo.db.users.find({'userName': {'$ne': my_name}}).skip(skip_num).limit(page_size)
+    return mongo.db.gm_users.find({'userName': {'$ne': my_name}}).skip(skip_num).limit(page_size)
 
 
 def edit_user(user_name, new_password, new_authority):
-    if not mongo.db.users.find_one({'userName': user_name}):
+    if not mongo.db.gm_users.find_one({'userName': user_name}):
         return False
     else:
-        mongo.db.users.update_one({'userName': user_name}, {
+        mongo.db.gm_users.update_one({'userName': user_name}, {
             '$set': {'password': generate_password_hash(new_password), 'authority': new_authority}})
         return True
 

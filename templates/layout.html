@@ -91,9 +91,7 @@
             <label for="authority" class="control-label">Change Authority:</label>
             <select id="authority" name="authority" class="form-control" required>
                 {% for key,value in authority_list %}
-                    {% if key != 'none' %}
                         <option value="{{ key|e }}">{{ value|e }}</option>
-                    {% endif %}
                 {% endfor %}
             </select>
         </div>
