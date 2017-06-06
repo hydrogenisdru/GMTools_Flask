@@ -1,4 +1,4 @@
-import gmCmdPro_pb2
+from proto import gmCmdPro_pb2
 
 
 def gm_online_ntf():

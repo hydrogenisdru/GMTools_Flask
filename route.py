@@ -1,15 +1,15 @@
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_paginate import Pagination
-from flask_pymongo import DESCENDING
 from flask_pymongo import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from form import *
-from manager import app
 from gm_application import login_manager, mongo, redis_store, mqAdaptor
+from manager import app
 from models import User, PlayerInfo
-import gmCmdPro_pb2
+from proto import gmCmdPro_pb2
+import binascii
 
 
 @app.route('/')
@@ -147,9 +147,13 @@ def test_redis():
 @app.route('/test/mq', methods=['GET'])
 def test_mq():
     gmOnlineNtf = gmCmdPro_pb2.GmOnlineNtf()
-    gmOnlineNtf.id = 1
-    mqAdaptor.send(gmOnlineNtf.SerializeToString(),'GameServerQueue_4001')
+    gmOnlineNtf.id = 2222
 
+    data = gmOnlineNtf.SerializeToString()
+    hex_id = '{0:04x}'.format(10108)
+    buf = binascii.unhexlify(hex_id) + data
+    mqAdaptor.send(buf, 'GameServerQueue_4001')
+    return True
 
 @login_manager.user_loader
 def load_user(user_id):
