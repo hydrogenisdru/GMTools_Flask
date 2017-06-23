@@ -1,6 +1,7 @@
 from flask_login import UserMixin
-from application import mysql_db
 
+
+from application import mysql_db
 
 class User(UserMixin, dict):
     def __init__(self, userDict):
@@ -16,9 +17,20 @@ class User(UserMixin, dict):
         return str(self._id)
 
 
+class SystemMail:
+    def __init__(self, systemMailDict):
+        self.dict = systemMailDict
+
+    def __getattr__(self, item):
+        return self.dict[item]
+
+    def __setattr__(self, key, value):
+        self.dict[key] = value
+
+
 class PlayerInfo(mysql_db.Model):
     __tablename__ = 'user_detail'
     id = mysql_db.Column(mysql_db.BigInteger, primary_key=True)
     uuid = mysql_db.Column(mysql_db.BigInteger, unique=True)
     userDesc = mysql_db.Column(mysql_db.String(255))
-    suspensionExpiredDate = mysql_db.Column(mysql_db.Date,default=None)
+    suspensionExpiredDate = mysql_db.Column(mysql_db.Date, default=None)

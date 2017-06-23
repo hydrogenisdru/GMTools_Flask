@@ -41,8 +41,8 @@ function confirmDelete(userId) {
         message: "confirm DELETE?",
         callback: function (result) {
             if (result) {
-                $.post($SCRIPT_ROOT + "/delete/" + userId, function () {
-                    window.location.href = $SCRIPT_ROOT + "/gmtools/manage";
+                $.post($SCRIPT_ROOT + "/gm/delete/" + userId, function () {
+                    window.location.href = $SCRIPT_ROOT + "/gm/gmtools/manage";
                 });
             }
         }

@@ -240,5 +240,5 @@
     <script>
         var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
     </script>
-    <script src="{{ url_for('static', filename='profile.js') }}"></script>
+    <script src="{{ url_for('.static', filename='profile.js') }}"></script>
 {% endblock %}

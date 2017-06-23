@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block styles %}
     {{ super() }}
-    <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet">
+    <link href="{{ url_for('.static', filename='dashboard.css') }}" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
     {% block side_nav_bar %}

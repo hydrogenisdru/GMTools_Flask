@@ -1,6 +1,3 @@
-import datetime
-import re
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, HiddenField, SelectField
 from wtforms.validators import DataRequired, Length
@@ -30,5 +27,17 @@ class EditUserForm(FlaskForm):
     submit = SubmitField('apply')
 
 
+class SystemMailForm(FlaskForm):
+    toWhere = StringField('toWhere', validators=[DataRequired(), Length(1, 200)])
+    toWhom = StringField('toWhom', validators=[DataRequired(), Length(1, 200)])
+    template = StringField('toWhom', validators=[DataRequired(), Length(1, 10)])
+    content = StringField('content', validators=[DataRequired(), Length(1, 200)])
+
+
 class SearchForm(FlaskForm):
     searchInfo = StringField('searchInfo', validators=[DataRequired(), Length(1, 64)])
+
+
+class Notice(FlaskForm):
+    markdown = TextAreaField('markdown', validators=[DataRequired()])
+    submit = SubmitField('submit')

@@ -1,14 +1,14 @@
 {% extends "bootstrap/base.html" %}
 {% import "bootstrap/utils.html" as utils %}
 {% set navigation_bar = [
-    (url_for('index'), 'index', 'home'),
-    (url_for('about'), 'about', 'about'),
+    (url_for('.index'), 'index', 'home'),
+    (url_for('.about'), 'about', 'about'),
 ] %}
 {% set authority_list = [('none','none'),('gm_1','gm_1'),('gm_2','gm_2'),('gm_3','gm_3')] %}
 {% block styles %}
     {{ super() }}
     <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ url_for('static', filename='base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('.static', filename='base.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block navbar %}
@@ -32,13 +32,13 @@
                     {% endfor %}
                     {% if current_user.is_authenticated %}
                         <li class=" {% if 'server_console' == active_page %}active{% endif %}">
-                            <a href="{{ url_for('server_console') }}">server console</a></li>
+                            <a href="{{ url_for('.server_console') }}">server console</a></li>
                         <li class=" {% if 'gm_tools' == active_page %}active{% endif %}">
-                            <a href="{{ url_for('gm_tools') }}">gm tools</a></li>
-                        <li><a href="{{ url_for('logout') }}">logout</a></li>
+                            <a href="{{ url_for('.gm_tools') }}">gm tools</a></li>
+                        <li><a href="{{ url_for('.logout') }}">logout</a></li>
                     {% else %}
                         <li class=" {% if 'login' == active_page %}active{% endif %}">
-                            <a href="{{ url_for('login') }}">login</a></li>
+                            <a href="{{ url_for('.login') }}">login</a></li>
                     {% endif %}
                 </ul>
             </div>

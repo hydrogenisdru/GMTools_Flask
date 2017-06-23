@@ -29,6 +29,7 @@
                 <th>Uuid</th>
                 <th>SuspensionExpiredDate</th>
                 <th>Manage</th>
+                <th>Kick</th>
             </tr>
             </thead>
             <tbody>
@@ -44,6 +45,11 @@
                     <th>
                         <button type="button" class="btn btn-primary" onclick="openProfile('{{ player.uuid|e }}')">
                             Edit
+                        </button>
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-primary" onclick="kick('{{ player.uuid|e }}')">
+                            Kick
                         </button>
                     </th>
                 </tr>
@@ -70,5 +76,5 @@
     <script>
         var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
     </script>
-    <script src="{{ url_for('static', filename='dropdown.js') }}"></script>
+    <script src="{{ url_for('.static', filename='dropdown.js') }}"></script>
 {% endblock %}

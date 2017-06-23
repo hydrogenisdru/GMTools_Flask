@@ -67,6 +67,6 @@
         var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
     </script>
     <script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
-    <script src="{{ url_for('static', filename='pop_up_form.js') }}"></script>
+    <script src="{{ url_for('.static', filename='pop_up_form.js') }}"></script>
 {#    <script src="{{ url_for('static', filename='base.js') }}"></script>#}
 {% endblock %}

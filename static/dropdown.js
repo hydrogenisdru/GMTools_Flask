@@ -12,5 +12,11 @@ function queryPlayer() {
 }
 
 function openProfile(uuid) {
-    window.location.href = $SCRIPT_ROOT + "/gmtools/profile/" + uuid;
+    window.location.href = $SCRIPT_ROOT + "/gm/gmtools/profile/" + uuid;
+}
+
+function kick(uuid) {
+    $.post($SCRIPT_ROOT + "/gm/kick/" + uuid, function () {
+        window.location.href = $SCRIPT_ROOT + "/gm/gmtools/controls";
+    });
 }

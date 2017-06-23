@@ -2,18 +2,21 @@
 import os
 
 from flask_script import Manager, Shell
-from application import create_app
+from application import create_app, mongo
+from route import bluePrint
 
-config_name = os.getenv('FLASK_CONFIG') or 'default'
+print '1'
+
+config_name = os.getenv('FLASK_CONFIG') or 'production'
 app = create_app(config_name)
+app.register_blueprint(bluePrint)
 
-from route import *
 
 manager = Manager(app)
 
 
 def make_shell_context():
-    return dict(app=app)
+    return dict(app=app.app)
 
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
@@ -23,8 +26,9 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 @manager.option('-p', '--password', dest='password', default=app.config['DEFAULT_PWD'])
 @manager.option('-a', '--authority', dest='authority', default=app.config['DEFAULT_AUTH'])
 def create_user(userName, password, authority):
-    mongo.db.gm_users.remove({"userName": userName})
-    mongo.db.gm_users.insert({'userName': userName, 'password': generate_password_hash(password), 'authority': authority})
+    mongo.db.gm_users.delete_one({"userName": userName})
+    mongo.db.gm_users.insert_one(
+        {'userName': userName, 'password': mongo.generate_password_hash(password), 'authority': authority})
 
 
 if __name__ == '__main__':

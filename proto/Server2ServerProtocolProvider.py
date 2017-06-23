@@ -1,81 +1,43 @@
 from gmCmdPro_pb2 import *
 
+msg = dict()
+msg[GmOnlineNtf] = 10108
 
-class ProtoMsgId:
-    NONE = 0
-    S2_SECHO_ACK = 10001;
-    S2_SECHO_REQ = 10002;
-    S2_SUPDATE_NTF = 10003;
-    PLAYER_STATUS_QUERY_ACK = 10004;
-    PLAYER_STATUS_QUERY_REQ = 10005;
-    PLAYER_STATUS_UPDATE_NTF = 10006;
-    CREATE_GAME_SESSION_ACK = 10007;
-    CREATE_GAME_SESSION_REQ = 10008;
-    HOST_REGISTER_ACK = 10009;
-    HOST_REGISTER_REQ = 10010;
-    FIND_MATCH_SERVER_ACK = 10013;
-    FIND_MATCH_SERVER_REQ = 10014;
-    MATCH_SRV_REGISTER_ACK = 10024;
-    MATCH_SRV_REGISTER_REQ = 10025;
-    SERVER_INFO_REPORT_REQ = 10027;
-    S2_SGAME_SERVER_HEARTBEAT_NTF = 10050;
-    S2_SGAME_SERVER_REG_ACK = 10051;
-    S2_SGAME_SERVER_REG_REQ = 10052;
-    S2_SGAME_SERVER_STAT_INFO_NTF = 10053;
-    S2_SCANCEL_MATCH_ACK = 10054;
-    S2_SCANCEL_MATCH_REQ = 10055;
-    S2_SCANCEL_MATCH_STATE_UPDATE_NTF = 10056;
-    S2_SCONFIRM_GAME_SESSION_CREATE_ACK = 10057;
-    S2_SCONFIRM_GAME_SESSION_CREATE_REQ = 10058;
-    S2_SCONFIRM_TIMEOUT_RE_MATCH_NTF = 10059;
-    S2_SCREATE_MATCH_GROUP_ACK = 10060;
-    S2_SCREATE_MATCH_GROUP_REQ = 10061;
-    S2_SJOIN_MATCH_GROUP_ACK = 10062;
-    S2_SJOIN_MATCH_GROUP_REQ = 10063;
-    S2_SKICK_MATCH_GROUP_REQ = 10064;
-    S2_SLEAVE_MATCH_GROUP_ACK = 10065;
-    S2_SLEAVE_MATCH_GROUP_REQ = 10066;
-    S2_SMATCH_ACK = 10067;
-    S2_SMATCH_GROUP_ADMIN_CHANGE_NTF = 10068;
-    S2_SMATCH_GROUP_UPDATE_NTF = 10069;
-    S2_SMATCH_REQ = 10070;
-    S2_SMATCH_SERVER_LOAD_PLAYER_INFO_ACK = 10071;
-    S2_SMATCH_SERVER_LOAD_PLAYER_INFO_REQ = 10072;
-    S2_SMATCH_START_NTF = 10073;
-    S2_SMATCH_STATE_UPDATE_NTF = 10074;
-    S2_SMATCH_SUCESS_NTF = 10075;
-    S2_SROOM_PLAYER_CONFIRME_STATUS_NTF = 10076;
-    S2_SSELF_CONFIRM_TIMEOUT_NTF = 10077;
-    S2_STEAMMATE_CANCEL_MATCH_NTF = 10078;
-    S2_STEAMMATE_JOIN_MATCH_GROUP_NTF = 10079;
-    S2_STEAMMATE_LEAVE_MATCH_GROUP_NTF = 10080;
-    S2_SKICK_MATCH_GROUP_ACK = 10081;
-    S2_SGAME_SERVER_OFFLINE_NTF = 10082;
-    S2_SGAME_SERVER_ONLINE_NTF = 10083;
-    S2_STRANSFER_REQ = 10084;
-    GAME_SESSION_PLAYER_INFO_SET_REQ = 10085;
-    HOST_HEARTBEAT_NTF = 10087;
-    HOST_MGR_SERVER_STAT_INFO_NTF = 10088;
-    HOST_STAT_INFO_NTF = 10089;
-    GAME_RESULT_NTF = 10090;
-    HOST_MGR_HEARTBEAT_NTF = 10091;
-    SELF_BE_PRAISE_NTF = 10092;
-    MATCH_ROOM_ALIVE_NTF = 10093;
-    S2_SGET_PLAYER_STATUS_ACK = 10098;
-    S2_SGET_PLAYER_STATUS_REQ = 10099;
-    S2_SRECEIVED_CHAT_MESSAGE_NTF = 10100;
-    S2_SADD_FRIEND_REQUEST_FEEDBACK_NTF = 10103;
-    S2_SADD_FRIEND_REQUEST_NTF = 10104;
-    S2_SREMOVE_FRIEND_NTF = 10105;
-    HOST_RE_REGISTER_NTF = 10106;
-    S2_SNEW_MAIL_RECEIVED_NTF = 10107;
-    GM_ONLINE_NTF = 10108;
+msg[PullSystemMailNtf] = 10109
+
+msg[GmNoticeNtf] = 10110
+
+msg[KickPlayerNtf] = 10111
+
+msg[PullAnnouncementNtf] = 10113
+
+msg[UpdatePatchNtf] = 10114
+
+msg[PullActivityConfigNtf] = 10115
 
 
 class Server2ServerProtocolProvider:
-    def __init__(self, msg_id=ProtoMsgId()):
-        self.msg_id = msg_id
+    def __init__(self, msg_dict=msg):
+        self.msg_dict = msg_dict
 
     def parse(self, id, data):
         if id == 10108:
-            return GmOnlineNtf().ParseFromString(data);
+            return GmOnlineNtf().ParseFromString(data)
+
+        if id == 10109:
+            return PullSystemMailNtf().ParseFromString(data)
+
+        if id == 10110:
+            return GmNoticeNtf().ParseFromString(data)
+
+        if id == 10111:
+            return KickPlayerNtf().ParseFromString(data)
+
+        if id == 10113:
+            return PullAnnouncementNtf().ParseFromString(data)
+
+        if id == 10114:
+            return UpdatePatchNtf().ParseFromString(data)
+
+        if id == 10115:
+            return PullActivityConfigNtf().ParseFromString(data)

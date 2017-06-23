@@ -1,3 +1,24 @@
 {% set active_page = 'gm_tools' %}
 {% set active_side_nav_bar = 'overview' %}
 {% extends 'gm_tools_layout.html' %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('.static', filename='bootstrap-markdown/css/bootstrap-markdown.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block main_content %}
+    <h2 class="sub-header">GM Notice Sender</h2>
+    <div class="container">
+        <form method="POST" class="form" role="form">
+            {{ form.csrf_token }}
+            <textarea name="markdown" id="markdown" data-provide="markdown" data-width="600" rows="10"></textarea>
+            <hr/>
+            <input class="btn btn-primary btn-sm" id="submit" name="submit" type="submit"
+                   value="Summit">
+        </form>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/js/bootstrap-markdown.js') }}"></script>
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/locale/bootstrap-markdown.zh.js') }}"></script>
+{% endblock %}

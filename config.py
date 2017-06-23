@@ -17,6 +17,27 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PAGE_SIZE = 10
 
+    JOBS = [
+        {
+            'id': 'job1',
+            'func': 'tasks:add',
+            'args': (1, 2),
+            'trigger': 'interval',
+            'seconds': 10
+        }
+    ]
+
+    SCHEDULER_EXECUTORS = {
+        'default': {'type': 'threadpool', 'max_workers': 20}
+    }
+
+    SCHEDULER_JOB_DEFAULTS = {
+        'coalesce': False,
+        'max_instances': 3
+    }
+
+    SCHEDULER_API_ENABLED = True
+
     @staticmethod
     def init_app(app):
         app.extensions['bootstrap']['cdns']['jquery'] = WebCDN(

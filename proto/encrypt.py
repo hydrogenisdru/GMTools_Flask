@@ -1,11 +1,12 @@
-import Server2ServerProtocolProvider
+import binascii
+
 
 @staticmethod
 def encode(msg_id, data):
-    buf = bytearray(2 + data.__len__)
-    buf.append(buffer(msg_id))
-    buf.append(data)
+    hex_id = '{0:04x}'.format(msg_id)
+    buf = binascii.unhexlify(hex_id) + data
     return buf
 
+
+# @staticmethod
 # def decode(buf):
-#     id = buf

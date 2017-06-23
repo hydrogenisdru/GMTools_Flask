@@ -1,4 +1,6 @@
 from flask import Flask
+from config import config
+from flask import Blueprint
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_pymongo import PyMongo
@@ -7,7 +9,8 @@ from flask_babel import Babel
 from flask_moment import Moment
 from flask_redis import FlaskRedis
 from simpleMqAdaptor import SimpleMqAdaptor
-from config import config
+from proto.Server2ServerProtocolProvider import Server2ServerProtocolProvider
+from flask_apscheduler import APScheduler
 
 bootstrap = Bootstrap()
 mongo = PyMongo()
@@ -17,7 +20,10 @@ moment = Moment()
 mysql_db = SQLAlchemy()
 redis_store = FlaskRedis()
 mqAdaptor = SimpleMqAdaptor('localhost')
+proto = Server2ServerProtocolProvider()
 
+
+# scheduler = APScheduler()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -29,6 +35,7 @@ def create_app(config_name):
     moment.init_app(app)
     mysql_db.init_app(app)
     redis_store.init_app(app)
+    # scheduler.init_app(app)
 
     login_manager.session_protection = 'strong'
     login_manager.login_view = 'login'
