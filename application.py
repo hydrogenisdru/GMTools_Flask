@@ -10,7 +10,7 @@ from flask_moment import Moment
 from flask_redis import FlaskRedis
 from simpleMqAdaptor import SimpleMqAdaptor
 from proto.Server2ServerProtocolProvider import Server2ServerProtocolProvider
-from flask_apscheduler import APScheduler
+# from flask_apscheduler import APScheduler
 
 bootstrap = Bootstrap()
 mongo = PyMongo()
@@ -21,9 +21,9 @@ mysql_db = SQLAlchemy()
 redis_store = FlaskRedis()
 mqAdaptor = SimpleMqAdaptor('localhost')
 proto = Server2ServerProtocolProvider()
-
-
 # scheduler = APScheduler()
+bluePrint = Blueprint('blue_print', __name__, static_folder='static', template_folder='templates')
+
 
 def create_app(config_name):
     app = Flask(__name__)

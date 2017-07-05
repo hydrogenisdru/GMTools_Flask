@@ -38,6 +38,10 @@ class SearchForm(FlaskForm):
     searchInfo = StringField('searchInfo', validators=[DataRequired(), Length(1, 64)])
 
 
+class SumbitForm(FlaskForm):
+    submit = SubmitField('submit')
+
+
 class Notice(FlaskForm):
     markdown = TextAreaField('markdown', validators=[DataRequired()])
     submit = SubmitField('submit')

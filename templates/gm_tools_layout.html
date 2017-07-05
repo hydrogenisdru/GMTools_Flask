@@ -1,6 +1,7 @@
 {% if current_user.authority == 'admin' %}
     {% set side_nav_bar = [
     (url_for('.gm_tools'), 'overview', 'overview'),
+    (url_for('.gm_tools_activity'), 'activity', 'activity'),
     (url_for('.gm_tools_system_mail'), 'system mail', 'system mail'),
     (url_for('.gm_tools_controls'), 'controls', 'controls'),
     (url_for('.gm_tools_account_manage'), 'account manage', 'account manage'),

@@ -5,14 +5,12 @@ from flask_pymongo import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from form import *
-from application import login_manager, mongo, redis_store, mqAdaptor, proto, Blueprint, config
+from application import login_manager, mongo, redis_store, mqAdaptor, proto, bluePrint, config
 from models import User, PlayerInfo
 from proto import gmCmdPro_pb2
 from proto.encrypt import encode
 import datetime
 import demjson
-
-bluePrint = Blueprint('blue_print', __name__, static_folder='static', template_folder='templates')
 
 
 @bluePrint.route('/gm')
@@ -85,42 +83,124 @@ def gm_tools_overview():
     return render_template('gm_tools_overview.html', form=notice)
 
 
+@bluePrint.route('/gm/gmtools/activity', methods=['GET', 'POST'])
+@login_required
+def gm_tools_activity():
+    activity_form = Notice()
+    if activity_form.validate_on_submit() and activity_form.markdown.data != '':
+        activity = demjson.decode(activity_form.markdown.data)
+        if activity['heroes'] and activity['guns']:
+            update_period_free_info(activity['heroes'], activity['guns'])
+            pullActivityConfigNtf = gmCmdPro_pb2.PullActivityConfigNtf()
+            pullActivityConfigNtf.id = 1
+            mqAdaptor.send(
+                encode(proto.msg_dict[gmCmdPro_pb2.PullActivityConfigNtf], pullActivityConfigNtf.SerializeToString()),
+                '/topic/GmTopic')
+            flash('updated!')
+    else:
+        flash('failed to update!')
+    return render_template('gm_tools_activity.html', activity_form=activity_form, active_pane='home')
+
+
+@bluePrint.route('/gm/gmtools/check_activity', methods=['GET', 'POST'])
+@login_required
+def gm_tools_check_activity():
+    periodfree_info = list(get_period_free_info())
+    re = list()
+    if periodfree_info:
+        for hero in periodfree_info[0]['hero']:
+            re.append(hero)
+        for gun in periodfree_info[0]['gun']:
+            re.append(gun)
+    return demjson.encode(re, encoding='utf-8')
+
+
+# @bluePrint.route('/gm/gmtools/edit_activity', methods=['GET', 'POST'])
+# @login_required
+# def gm_tools_edit_activity():
+#     notice = Notice()
+#     if notice.validate_on_submit():
+#         if notice.markdown.data != '':
+#             periodfree_info = demjson.decode(notice.markdown.data)
+#             heroes = list()
+#             guns = list()
+#             for info in periodfree_info['heroes']:
+#                 hero = dict()
+#                 hero['id'] = info
+#                 hero['begin'] = periodfree_info['dateBegin']
+#                 hero['end'] = periodfree_info['dateEnd']
+#                 heroes.append(hero)
+#             for info in periodfree_info['guns']:
+#                 gun = dict()
+#                 gun['id'] = info
+#                 gun['begin'] = periodfree_info['dateBegin']
+#                 gun['end'] = periodfree_info['dateEnd']
+#                 guns.append(gun)
+#             update_period_free_info(heroes, guns)
+#             pullActivityConfigNtf = gmCmdPro_pb2.PullActivityConfigNtf()
+#             pullActivityConfigNtf.id = 1
+#             mqAdaptor.send(
+#                 encode(proto.msg_dict[gmCmdPro_pb2.PullActivityConfigNtf], pullActivityConfigNtf.SerializeToString()),
+#                 '/topic/GmTopic')
+#             return render_template('gm_tools_activity.html', submit_form=SumbitForm(), heroes=heroes, guns=guns)
+#     return render_template('controls_activity.html', notice=notice)
+
+
 @bluePrint.route('/gm/gmtools/systemmail', methods=['GET', 'POST'])
 @login_required
 def gm_tools_system_mail():
-    system_mail_form = SystemMailForm()
-    if system_mail_form.validate_on_submit():
-        playerList = list()
-        content = dict()
-        if system_mail_form.toWhere.data == 'all':
-            zoneList = [111111, 222222, 333333]
-        else:
-            zoneList = system_mail_form.toWhere.data.split(',')
-        if system_mail_form.toWhom.data != 'all':
-            nameList = system_mail_form.toWhom.data.split(',')
-            for name in nameList:
+    system_mail_form = Notice()
+    if system_mail_form.validate_on_submit() and system_mail_form.markdown.data != '':
+        mails = demjson.decode(system_mail_form.markdown.data)
+        for mail in mails:
+            playerList = list()
+            for name in mail['toWhom']:
                 for player in query_player(name):
                     playerList.append(player.uuid)
-        if system_mail_form.content.data != 'none':
-            content = demjson.decode(system_mail_form.content.data)
-        mail_info = {
-            'template': int(system_mail_form.template.data),
-            'content': content,
-            'createAt': datetime.datetime.now(),
-            'toWhichZone': zoneList,
-            'toWhom': playerList
-        }
-        info_string = demjson.encode(mail_info, encoding='utf-8')
-        add_system_mail(mail_info)
-        pullSystemMailNtf = gmCmdPro_pb2.PullSystemMailNtf()
-        # data = pullSystemMailNtf.SerializeToString()
-        # hex_id = '{0:04x}'.format(proto.msg_dict[gmCmdPro_pb2.PullSystemMailNtf])
-        # buf = binascii.unhexlify(hex_id) + data
-        # mqAdaptor.send(buf, 'GameServerQueue_4001')
-        mqAdaptor.send(encode(gmCmdPro_pb2.PullSystemMailNtf, pullSystemMailNtf.SerializeToString()),
-                       '/topic/GmTopic')
-        flash('yeah! send a system mail: ' + info_string)
-    return render_template('gm_tools_system_mail.html', system_mail_form=system_mail_form)
+            mail_info = {
+                'template': mail['template'],
+                'content': mail['content'],
+                'createAt': datetime.datetime.utcnow(),
+                'toWhichZone': mail['toWhere'],
+                'toWhom': playerList
+            }
+            info_string = demjson.encode(mail_info, encoding='utf-8')
+            if mail['toWhere'] == '' and playerList == '':
+                flash('no player to be send! ' + info_string)
+            else:
+                add_system_mail(mail_info)
+                pullSystemMailNtf = gmCmdPro_pb2.PullSystemMailNtf()
+                mqAdaptor.send(
+                    encode(proto.msg_dict[gmCmdPro_pb2.PullSystemMailNtf], pullSystemMailNtf.SerializeToString()),
+                    '/topic/GmTopic')
+                flash('yeah! send a system mail: ' + info_string)
+    return render_template('gm_tools_system_mail.html', system_mail_form=system_mail_form,
+                           system_mail_list=None, active_pane='home')
+
+
+@bluePrint.route('/gm/gmtools/check_system_mail', methods=['GET', 'POST'])
+@login_required
+def check_system_mail():
+    mail_list = list()
+    for mail in list(check_system_mail_from_mongo()):
+        info = dict()
+        info['_id'] = str(mail['_id'])
+        info['createAt'] = mail['createAt']
+        info['toWhichZone'] = mail['toWhichZone']
+        info['toWhom'] = mail['toWhom']
+        info['content'] = demjson.encode(mail['content'], encoding='utf-8')
+        mail_list.append(info)
+    return demjson.encode(mail_list, encoding='utf-8')
+
+
+@bluePrint.route('/gm/gmtools/system_mail_delete', methods=['GET', 'POST'])
+@login_required
+def delete_system_mail():
+    mailId = request.form['mailId']
+    if mailId and delete_system_mail_from_mongo(mailId):
+        return 'success delete mail ' + mailId
+    else:
+        return 'failed to delete mail ' + mailId
 
 
 @bluePrint.route('/gm/gmtools/controls', defaults={'page': 1}, methods=['GET', 'POST'])
@@ -201,39 +281,43 @@ def test_redis():
     return v
 
 
-@bluePrint.route('/gm/test/mq', methods=['GET'])
-def test_mq():
-    return proto.msg_dict[gmCmdPro_pb2.GmOnlineNtf()]
-    # gmOnlineNtf = gmCmdPro_pb2.GmOnlineNtf()
-    # gmOnlineNtf.id = 2222
-    #
-    # data = gmOnlineNtf.SerializeToString()
-    # hex_id = '{0:04x}'.format(10108)
-    # buf = binascii.unhexlify(hex_id) + data
-    # mqAdaptor.send(buf, 'GameServerQueue_4001')
-    # return 'success'
+# @bluePrint.route('/gm/test/mq', methods=['GET'])
+# def test_mq():
+#     return proto.msg_dict[gmCmdPro_pb2.GmOnlineNtf()]
+# gmOnlineNtf = gmCmdPro_pb2.GmOnlineNtf()
+# gmOnlineNtf.id = 2222
+#
+# data = gmOnlineNtf.SerializeToString()
+# hex_id = '{0:04x}'.format(10108)
+# buf = binascii.unhexlify(hex_id) + data
+# mqAdaptor.send(buf, 'GameServerQueue_4001')
+# return 'success'
 
-
-@bluePrint.route('/gm/test/mail', methods=['GET'])
-def send_mail():
-    content = {'1': 1, '2': 2}
-    dic = {
-        'template': 0,
-        'content': content,
-        'createAt': datetime.datetime.now(),
-        'toWhichZone': [60001],
-        'toWhom': []
-    }
-    add_system_mail(dic)
-    return 'success'
-
-
-@bluePrint.route('/gm/test/task', methods=['GET'])
-def add_task():
-    # from tasks import test, celery_app
-    # result = add.delay(4, 4)
-    # result.ready()
-    return 'success'
+# @bluePrint.route('/gm/test/scheduler_start', methods=['GET'])
+# def scheduler_start():
+#     scheduler.start()
+#     # from tasks import test, celery_app
+#     # result = add.delay(4, 4)
+#     # result.ready()
+#     return 'success'
+#
+#
+# @bluePrint.route('/gm/test/scheduler_stop', methods=['GET'])
+# def scheduler_stop():
+#     scheduler.shutdown()
+#     # from tasks import test, celery_app
+#     # result = add.delay(4, 4)
+#     # result.ready()
+#     return 'success'
+#
+#
+# @bluePrint.route('/gm/test/scheduler_add_job', methods=['GET'])
+# def scheduler_add_job():
+#     scheduler.add_job(id='job2', func='tasks:minus', args=(2, 1), trigger='interval', seconds=10)
+#     # from tasks import test, celery_app
+#     # result = add.delay(4, 4)
+#     # result.ready()
+#     return 'success'
 
 
 @login_manager.user_loader
@@ -277,6 +361,36 @@ def edit_user(user_name, new_password, new_authority):
         mongo.db.gm_users.update_one({'userName': user_name}, {
             '$set': {'password': generate_password_hash(new_password), 'authority': new_authority}})
         return True
+
+
+def get_period_free_info():
+    return mongo.db.cfg_periodfree.find({})
+
+
+def update_period_free_info(heroes, guns):
+    mongo.db.cfg_periodfree.delete_many({})
+    mongo.db.cfg_periodfree.insert_one({'hero': heroes, 'gun': guns})
+    # info = list(mongo.db.cfg_periodfree.find({}))
+    # if not info:
+    #     return False
+    # else:
+    #     objectId = info[0]['_id']
+    #     mongo.db.cfg_periodfree.upate_one({'_id': objectId}, {
+    #         '$set': {'hero': heroes, 'gun': guns}
+    #     })
+    #     return True
+
+
+def check_system_mail_from_mongo():
+    return mongo.db.systemMail.find({})
+
+
+def delete_system_mail_from_mongo(objId):
+    if mongo.db.systemMail.find({'_id': ObjectId(objId)}):
+        mongo.db.systemMail.delete_one({'_id': ObjectId(objId)})
+        return True
+    else:
+        return False
 
 
 def query_player(search_info):

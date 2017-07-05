@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Basic JSON Editor Example</title>
+    <script src="{{ url_for('.static', filename='jsoneditor.js') }}"></script>
+</head>
+<body>
+<h1>Activity JSON Editor</h1>
+{#<span id='valid_indicator'></span>#}
+<div id='editor_holder'></div>
+<form method="post" name="notice" id="notice" hidden="hidden">
+    {{ notice.csrf_token }}
+    <textarea name="markdown" id="markdown" class="form-control" hidden="hidden"></textarea>
+</form>
+<button id='submit'>Submit</button>
+<script src="{{ url_for('.static', filename='inspector.js') }}"></script>
+<script>
+    // Initialize the editor with a JSON schema
+    var editor = new JSONEditor(document.getElementById('editor_holder'), {
+        schema: {
+            type: "object",
+            title: "activity",
+            properties: {
+                heroes: {
+                    type: "array",
+                    items: {
+                        type: "integer"
+                    }
+                },
+                guns: {
+                    type: "array",
+                    items: {
+                        type: "integer"
+                    }
+                },
+                dateBegin: {
+                    type: "string"
+                },
+                dateEnd: {
+                    type: "string"
+                }
+            }
+        }
+    });
+
+    {#    editor.on('change', function () {#}
+    {#        // Get an array of errors from the validator#}
+    {#        var errors = editor.validate();#}
+    {##}
+    {#        var indicator = document.getElementById('valid_indicator');#}
+    {##}
+    {#        // Not valid#}
+    {#        if (errors.length) {#}
+    {#            indicator.style.color = 'red';#}
+    {#            indicator.textContent = "not valid";#}
+    {#        }#}
+    {#        // Valid#}
+    {#        else {#}
+    {#            indicator.style.color = 'green';#}
+    {#            indicator.textContent = "valid";#}
+    {#        }#}
+    {#    });#}
+    var markdown = document.getElementById('markdown');
+    var notice = document.getElementById('notice');
+
+
+    // Hook up the submit button to log to the console
+    document.getElementById('submit').addEventListener('click', function () {
+        // Get the value from the editor;
+        var heroes = editor.getValue().heroes;
+        var guns = editor.getValue().guns;
+        var dateBegin = editor.getValue().dateBegin;
+        var dateEnd = editor.getValue().dateEnd;
+        do {
+            if (heroes == null || guns == null) {
+                alert('must add heroes and skins!')
+                break;
+            }
+            var breakFlag = false;
+            for (var index in heroes) {
+                if (!isHero(heroes[index])) {
+                    alert('wrong hero id: ' + heroes[index]);
+                    breakFlag = true;
+                    break;
+                }
+            }
+            for (var index in guns) {
+                if (!isGun(guns[index])) {
+                    alert('wrong gun id: ' + guns[index]);
+                    breakFlag = true;
+                    break;
+                }
+            }
+
+            if (breakFlag)
+                break;
+
+            if (!isDate(dateBegin) || !isDate(dateEnd)) {
+                alert('wrong date format!');
+                break;
+            }
+            var begin = new Date(dateBegin.replace(/-/g, "/"));
+            var end = new Date(dateEnd.replace(/-/g, "/"));
+            if (begin >= end) {
+                alert("wrong period from" + dateBegin + "to " + dateEnd);
+                break;
+            }
+            {#            console.log(editor.getValue());#}
+            var json = editor.getValue();
+            markdown.value = JSON.stringify(json, null, 2);
+            notice.submit();
+        } while (false);
+    });
+</script>
+</body>
+</html>

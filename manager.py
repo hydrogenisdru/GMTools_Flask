@@ -11,7 +11,6 @@ config_name = os.getenv('FLASK_CONFIG') or 'production'
 app = create_app(config_name)
 app.register_blueprint(bluePrint)
 
-
 manager = Manager(app)
 
 

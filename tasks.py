@@ -16,6 +16,12 @@ def add(x, y):
     print result
     return result
 
+
+def minus(x, y):
+    result = x - y
+    print result
+    return result
+
 #
 #
 # @celery_app.task

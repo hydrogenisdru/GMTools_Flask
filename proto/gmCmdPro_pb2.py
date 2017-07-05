@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gmCmdPro.proto',
   package='com.firevale.server2server.protocol',
-  serialized_pb=_b('\n\x0egmCmdPro.proto\x12#com.firevale.server2server.protocol\"\x19\n\x0bGmOnlineNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x13\n\x11PullSystemMailNtf\"!\n\rKickPlayerNtf\x12\x10\n\x08playerId\x18\x01 \x02(\x05\"\x1d\n\x0bGmNoticeNtf\x12\x0e\n\x06notice\x18\x01 \x01(\t\"\x15\n\x13PullAnnouncementNtf\"\x17\n\x15PullActivityConfigNtf\"\x10\n\x0eUpdatePatchNtf')
+  serialized_pb=_b('\n\x0egmCmdPro.proto\x12#com.firevale.server2server.protocol\"\x19\n\x0bGmOnlineNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x13\n\x11PullSystemMailNtf\"!\n\rKickPlayerNtf\x12\x10\n\x08playerId\x18\x01 \x02(\x05\"\x1d\n\x0bGmNoticeNtf\x12\x0e\n\x06notice\x18\x01 \x01(\t\"\x15\n\x13PullAnnouncementNtf\"#\n\x15PullActivityConfigNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x10\n\x0eUpdatePatchNtf')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -168,6 +168,13 @@ _PULLACTIVITYCONFIGNTF = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='com.firevale.server2server.protocol.PullActivityConfigNtf.id', index=0,
+      number=1, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -180,7 +187,7 @@ _PULLACTIVITYCONFIGNTF = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=192,
-  serialized_end=215,
+  serialized_end=227,
 )
 
 
@@ -202,8 +209,8 @@ _UPDATEPATCHNTF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=217,
-  serialized_end=233,
+  serialized_start=229,
+  serialized_end=245,
 )
 
 DESCRIPTOR.message_types_by_name['GmOnlineNtf'] = _GMONLINENTF
