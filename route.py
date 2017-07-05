@@ -97,8 +97,8 @@ def gm_tools_activity():
                 encode(proto.msg_dict[gmCmdPro_pb2.PullActivityConfigNtf], pullActivityConfigNtf.SerializeToString()),
                 '/topic/GmTopic')
             flash('updated!')
-    else:
-        flash('failed to update!')
+        else:
+            flash('failed to update!')
     return render_template('gm_tools_activity.html', activity_form=activity_form, active_pane='home')
 
 

@@ -43,12 +43,12 @@ def create_app(config_name):
     if not app.debug:
         import logging
         from logging.handlers import TimedRotatingFileHandler
-        warn_file_handler = TimedRotatingFileHandler(filename="gm_tools.info.log", when='midnight', interval=1,
+        warn_file_handler = TimedRotatingFileHandler(filename="./log/gm_tools.info.log", when='midnight', interval=1,
                                                      encoding="utf8")
         warn_file_handler.setLevel(logging.INFO)
         app.logger.addHandler(warn_file_handler)
 
-        error_file_handler = TimedRotatingFileHandler(filename="gm_tools.error.log", when='midnight', interval=1,
+        error_file_handler = TimedRotatingFileHandler(filename="./log/gm_tools.error.log", when='midnight', interval=1,
                                                       encoding="utf8")
         error_file_handler.setLevel(logging.ERROR)
         app.logger.addHandler(error_file_handler)
