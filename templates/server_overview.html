@@ -39,5 +39,13 @@
                 });
             });
         });
+        setInterval(function () {
+            $.post($SCRIPT_ROOT + "/gm/gmtools/check_servers", function (resp) {
+                var data = eval(resp);
+                var table = $('#dt-servers').DataTable();
+                table.clear();
+                table.rows.add(data).draw();
+            });
+        }, 30000);
     </script>
 {% endblock %}
