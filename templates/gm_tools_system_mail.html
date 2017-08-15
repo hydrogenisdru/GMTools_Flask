@@ -31,6 +31,7 @@
                 </button>
                 <br/>
                 <h2></h2>
+                <span id='valid_indicator'></span>
                 <div id='editor_holder'></div>
                 <form method="post" name="system_mail" id="system_mail_form" hidden="hidden">
                     {{ system_mail_form.csrf_token }}
@@ -104,6 +105,14 @@
                             type: "integer",
                             title: "邮件模板"
                         },
+                        params: {
+                            type: "array",
+                            title: "模板参数",
+                            items: {
+                                type: "string",
+                                title: "param"
+                            }
+                        },
                         content: {
                             type: "object",
                             title: "包含的附件"
@@ -116,11 +125,35 @@
         var markdown = document.getElementById('markdown');
         var system_mail_form = document.getElementById('system_mail_form');
 
+        editor.on('change', function () {
+            var mails = editor.getValue();
+            for (var i = 0; i < mails.length; i++) {
+                var content = mails[i]['content'];
+                var indicator = document.getElementById('valid_indicator');
+                if (!verifyContentProperties(content)) {
+                    indicator.style.color = 'red';
+                    indicator.textContent = "warning";
+                } else {
+                    indicator.style.color = 'green';
+                    indicator.textContent = "valid";
+                }
+            }
+        });
+
         // Hook up the submit button to log to the console
         document.getElementById('submit').addEventListener('click', function () {
+            var indicator = document.getElementById('valid_indicator');
             var json = editor.getValue();
             markdown.value = JSON.stringify(json, null, 2);
-            system_mail_form.submit();
+            if (indicator.textContent == "warning") {
+                var r = confirm("所发送的系统邮件有一个或多个警告提示,确定要发送吗?");
+                if (r == true) {
+                    system_mail_form.submit();
+                }
+            } else {
+                system_mail_form.submit();
+            }
+
         });
 
         $('#dataTable2 tbody').on('click', 'tr', function () {
@@ -145,6 +178,35 @@
                 ]
             });
         });
+
+        function verifyContentProperties(o) {
+            var n, count = 0;
+            var check_list = {'0': 9999, '1': 999, '2': 0, '3': 99};
+            for (n in o) {
+                if (o.hasOwnProperty(n)) {
+                    if (check_list.hasOwnProperty(n)) {
+                        if (o[n] != null && o[n] > check_list[n]) {
+                            var alert_text = '物品代码' + n + '超过限制数量' + check_list[n] + '!'
+                            alert(alert_text);
+                            return false;
+                        }
+                    }
+                    else {
+                        if (o[n] != null && o[n] > 10) {
+                            var alert_text = '物品代码' + n + '超过限制数量10!'
+                            alert(alert_text);
+                            return false;
+                        }
+                    }
+                    count++;
+                }
+            }
+            if (count > 5) {
+                alert('发送的附件物品数量超过5,建议分开发送!');
+                return false;
+            }
+            return true;
+        }
     </script>
 {% endblock %}
 

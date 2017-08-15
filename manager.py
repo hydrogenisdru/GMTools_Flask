@@ -3,7 +3,7 @@ import os
 
 from flask_script import Manager, Shell
 from application import create_app, mongo
-from route import bluePrint
+from route import bluePrint,generate_password_hash
 
 print '1'
 
@@ -27,7 +27,7 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 def create_user(userName, password, authority):
     mongo.db.gm_users.delete_one({"userName": userName})
     mongo.db.gm_users.insert_one(
-        {'userName': userName, 'password': mongo.generate_password_hash(password), 'authority': authority})
+        {'userName': userName, 'password': generate_password_hash(password), 'authority': authority})
 
 
 if __name__ == '__main__':

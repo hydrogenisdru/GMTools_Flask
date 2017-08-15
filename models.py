@@ -33,4 +33,4 @@ class PlayerInfo(mysql_db.Model):
     id = mysql_db.Column(mysql_db.BigInteger, primary_key=True)
     uuid = mysql_db.Column(mysql_db.BigInteger, unique=True)
     userDesc = mysql_db.Column(mysql_db.String(255))
-    suspensionExpiredDate = mysql_db.Column(mysql_db.Date, default=None)
+    # suspensionExpiredDate = mysql_db.Column(mysql_db.Date, default=None)

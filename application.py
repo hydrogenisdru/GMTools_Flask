@@ -10,10 +10,12 @@ from flask_moment import Moment
 from flask_redis import FlaskRedis
 from simpleMqAdaptor import SimpleMqAdaptor
 from proto.Server2ServerProtocolProvider import Server2ServerProtocolProvider
+
 # from flask_apscheduler import APScheduler
 
 bootstrap = Bootstrap()
 mongo = PyMongo()
+mongo_analysis = PyMongo()
 login_manager = LoginManager()
 babel = Babel()
 moment = Moment()
@@ -36,7 +38,7 @@ def create_app(config_name):
     mysql_db.init_app(app)
     redis_store.init_app(app)
     # scheduler.init_app(app)
-
+    mongo_analysis.init_app(app, config_prefix='MONGO2')
     login_manager.session_protection = 'strong'
     login_manager.login_view = 'login'
 

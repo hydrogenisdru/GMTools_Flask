@@ -11,8 +11,9 @@ class Config:
     DEFAULT_PWD = '1234'
     DEFAULT_AUTH = 'admin'
     MQ_IP_ADDRESS = 'localhost'
-    MONGO_URI = 'mongodb://localhost:27017/fire2'
-    REDIS_URL = 'redis://:@localhost:6379/1'
+    MONGO_URI = 'mongodb://123.59.71.187:27027/fire2'
+    MONGO2_URI = 'mongodb://123.59.71.187:27027/analysis'
+    REDIS_URL = 'redis://:@123.59.71.187:6779/0'
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost:3306/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PAGE_SIZE = 10

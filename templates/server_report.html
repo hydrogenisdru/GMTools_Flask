@@ -8,27 +8,157 @@
 ] %}
 {% extends 'server_layout.html' %}
 {% block main_content %}
-    <h2 class="sub-header">Section title</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-            </tr>
-            </tbody>
-        </table>
+    <!-- Single button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" id="button2" value="7">
+            Weekly Report <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="button2-menu">
+            <li><a href="#" value="7">Weekly Report</a></li>
+            <li><a href="#" value="30">Monthly Report</a></li>
+            <li><a href="#" value="90">Quarterly Report</a></li>
+        </ul>
     </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" id="button3" value="dau">
+            DAU <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="button3-menu">
+            <li><a href="#" value="dau">DAU</a></li>
+            <li><a href="#" value="dpu">DPU</a></li>
+            <li><a href="#" value="dpur">DPUR</a></li>
+            <li><a href="#" value="arpu">ARPU</a></li>
+            <li><a href="#" value="retention">Retention</a></li>
+            <li><a href="#" value="income">Income</a></li>
+        </ul>
+    </div>
+    <button id='button1' class="btn btn-primary">test</button>
+    <h2 class="sub-header"></h2>
+    <h2></h2>
+    <div id="main" style="width: 800px;height:600px;"></div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+    </script>
+    <script src="{{ url_for('.static', filename='echarts.common.min.js') }}"></script>
+    <script type="text/javascript">
+
+        $("#button2-menu li a").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+            $(this).parents('.btn-group').find('#button2').attr('value', $(this).attr('value'));
+        });
+        $("#button3-menu li a").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+            $(this).parents('.btn-group').find('#button3').attr('value', $(this).attr('value'));
+        });
+        $("#button1").click(function () {
+            var myChart = echarts.init(document.getElementById('main'));
+            myChart.showLoading();
+            var return_val = "";
+            $.ajax({
+                type: 'post',
+                url: $SCRIPT_ROOT + '/gm/server/create_report/' + $("#button3").attr('value') +
+                '/' + $("#button2").attr('value'),
+                async: false,
+                success: function (json) {
+                    return_val = eval('(' + json + ')');
+                    myChart.hideLoading();
+                },
+                error: function () {
+                }
+            });
+            var option = Option()
+            for (var key in return_val) {
+                var type = 'bar'
+                if (key == 'title') {
+                    option.title.text = return_val[key]
+                } else if (key == 'type') {
+                    type = return_val[key]
+                } else if (key == 'attr') {
+                    var x = XAxis()
+                    x.data = return_val[key]
+                    option.xAxis.push(x)
+                } else {
+                    option.legend.data.push(key)
+                    var s = Series()
+                    s.name = key
+                    s.type = type
+                    s.data = return_val[key]
+                    option.series.push(s)
+                }
+            }
+            myChart.setOption(option,true)
+        });
+
+        var Option = function () {
+            var o = {
+                title: {
+                    text: '',
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [],
+                },
+                xAxis: [],
+                yAxis: [{type: 'value'}],
+                series: [],
+            }
+
+            return o
+        }
+
+        var XAxis = function () {
+            var f = {
+                type: 'category',
+                data: [],
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }
+
+            return f
+        }
+
+        var YAxis = function () {
+            var f = {
+                type: 'value',
+                name: '',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }
+
+            return f
+        }
+
+        var Series = function () {
+            var s = {
+                name: '',
+                type: 'bar',
+                markPoint: {
+                    data: [
+                        {type: 'max', name: 'max'},
+                        {type: 'min', name: 'min'}
+                    ]
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: 'average'}
+                    ]
+                },
+                data: []
+            }
+
+            return s
+        }
+
+    </script>
 {% endblock %}
