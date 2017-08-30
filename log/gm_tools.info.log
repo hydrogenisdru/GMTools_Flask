@@ -1,4 +1,120 @@
-Exception on /gm/server/online_count [POST]
+Exception on /gm/gmtools/announcement [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 120, in gm_tools_announcement
+    a_updater.update(content)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/announcementUpdater.py", line 35, in update
+    self.refreshCdnDir()
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/announcementUpdater.py", line 69, in refreshCdnDir
+    params[key] = urllib.quote(raw_params[key])
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 1297, in quote
+    if not s.rstrip(safe):
+AttributeError: 'int' object has no attribute 'rstrip'
+Exception on /gm/gmtools/check_sp_facility [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 167, in gm_tools_check_sp_facility
+    return demjson.encode(emergency_brake_info[0],encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('59a507aea54d759c00741f89'))
+Exception on /gm/gmtools/check_sp_facility [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 167, in gm_tools_check_sp_facility
+    return demjson.encode(emergency_brake_info[0],encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('59a507aea54d759c00741f89'))
+Exception on /gm/gmtools/check_sp_facility [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 167, in gm_tools_check_sp_facility
+    return demjson.encode(emergency_brake_info[0],encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('59a507aea54d759c00741f89'))
+Exception on /gm/gmtools/check_sp_facility [POST]
 Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,4 +128,56 @@ Traceback (most recent call last):
     response = BaseResponse(*_run_wsgi_app(response, environ))
   File "/usr/local/lib/python2.7/site-packages/werkzeug/test.py", line 884, in run_wsgi_app
     app_rv = app(environ, start_response)
-TypeError: 'int' object is not callable
+TypeError: 'dict' object is not callable
+Exception on /gm/gmtools/check_sp_facility [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 166, in gm_tools_check_sp_facility
+    if emergency_brake_info[0]:
+IndexError: list index out of range
+Exception on /gm/gmtools/check_sp_facility [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 167, in gm_tools_check_sp_facility
+    return demjson.encode(emergency_brake_info, encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5386, in encode_composite
+    self._do_encode( obj2, substate )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('59a69367d6e57d2094e1274b'))

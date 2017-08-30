@@ -1,0 +1,136 @@
+{% set active_page = 'gm_tools' %}
+{% set active_side_nav_bar = 'announcement' %}
+{% extends 'gm_tools_layout.html' %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('.static', filename='bootstrap-markdown/css/bootstrap-markdown.min.css') }}"
+          rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+{% block head %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='jsoneditor.js') }}"></script>
+    <script>
+        JSONEditor.defaults.theme = 'bootstrap3';
+    </script>
+{% endblock %}
+{% block main_content %}
+    {% block flash_message %}
+        {{ super() }}
+    {% endblock %}
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#announcementTab" data-toggle="tab">Announcements</a></li>
+        <li><a href="#checkTab" data-toggle="tab">Check Current Announcements</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane {% if "announcement" == active_pane %}active{% endif %}" id="announcementTab">
+            <div class="table-responsive">
+                <br/>
+                <button id="submit" class="btn btn-primary">Submit Announcements
+                    {#                    <br/>#}
+                    {#                    <span id='valid_indicator'></span>#}
+                </button>
+                <hr/>
+                <h2></h2>
+                <div id='editor_holder'></div>
+                <form method="post" name="announcement" id="announcement_form" hidden="hidden">
+                    {{ announcement_form.csrf_token }}
+                    <textarea name="markdown" id="markdown" class="form-control" hidden="hidden"></textarea>
+                </form>
+            </div><!--/table-resp-->
+        </div><!--/tab-pane-->
+        <div class="tab-pane {% if "check" == active_pane %}active{% endif %}" id="checkTab">
+            <div class="table-responsive">
+                <br/>
+                <textarea name="markdown2" id="markdown2" readonly="readonly" rows="20" cols="50"
+                          class="form-control"></textarea>
+            </div><!--/table-resp-->
+        </div><!--/tab-pane-->
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/js/bootstrap-markdown.js') }}"></script>
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/locale/bootstrap-markdown.zh.js') }}"></script>
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+        $(document).ready(function () {
+            $.post($SCRIPT_ROOT + "/gm/gmtools/check_announcement", function (resp) {
+                {#                var o = eval('(' + resp + ')');#}
+                var m = document.getElementById('markdown2');
+                m.value = resp;
+            });
+        });
+        var starting_value = [
+            {
+                Title: "t1",
+                StartTime: "0",
+                StopTime: "0",
+                Contents: [
+                    {
+                        SubTitle: "sb-1",
+                        SubContents: "sc-1",
+
+                    }
+                ],
+            },
+            {
+                Title: "t2",
+                StartTime: "0",
+                StopTime: "0",
+                Contents: [
+                    {
+                        SubTitle: "sb-2",
+                        SubContents: "sc-2",
+
+                    }
+                ],
+            },
+        ];
+        var editor = new JSONEditor(document.getElementById('editor_holder'), {
+            schema: {
+                type: "array",
+                title: "Announcements",
+                format: "tabs",
+                items: {
+                    type: "object",
+                    title: "announcement",
+                    properties: {
+                        Title: {
+                            type: "string",
+                        },
+                        StartTime: {
+                            type: "string",
+                        },
+                        StopTime: {
+                            type: "string",
+                        },
+                        Contents: {
+                            type: "array",
+                            format: "tabs",
+                            items: {
+                                type: "object",
+                                title: "content",
+                                properties: {
+                                    SubTitle: {
+                                        type: "string"
+                                    },
+                                    SubContents: {
+                                        type: "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            startval: starting_value,
+        });
+        document.getElementById('submit').addEventListener('click', function () {
+            var json = editor.getValue();
+            var markdown = document.getElementById('markdown');
+            var announcement_form = document.getElementById('announcement_form');
+            markdown.value = JSON.stringify(json, null, 2);
+            announcement_form.submit();
+        });
+    </script>
+{% endblock %}

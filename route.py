@@ -5,12 +5,14 @@ from flask_pymongo import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from form import *
-from application import login_manager, mongo, mongo_analysis, redis_store, mqAdaptor, proto, bluePrint, config
+from application import login_manager, mongo, mongo_analysis, redis_store, mqAdaptor, proto, bluePrint, config, \
+    a_updater
 from models import User, PlayerInfo
 from proto import gmCmdPro_pb2
 from proto.encrypt import encode
 import datetime
 import demjson
+from cStringIO import StringIO
 
 
 @bluePrint.route('/gm')
@@ -104,6 +106,74 @@ def gm_tools_activity():
             else:
                 flash('failed to update!')
         return render_template('gm_tools_activity.html', activity_form=activity_form, active_pane='home')
+    else:
+        return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/announcement', methods=['GET', 'POST'])
+@login_required
+def gm_tools_announcement():
+    if current_user.is_authenticated:
+        announcement_form = Notice()
+        if announcement_form.validate_on_submit() and announcement_form.markdown.data != '':
+            content = announcement_filestream_format(announcement_form.markdown.data)
+            if a_updater.update(content):
+                flash('updated!')
+            else:
+                flash('failed to update!')
+        return render_template('gm_tools_announcement.html', announcement_form=announcement_form,
+                               active_pane='announcement')
+    else:
+        return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/check_announcement', methods=['GET', 'POST'])
+@login_required
+def gm_tools_check_announcement():
+    if current_user.is_authenticated:
+        text = a_updater.get_file()
+        if text:
+            return text
+        else:
+            return ''
+    else:
+        return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/sp_facility', methods=['GET', 'POST'])
+@login_required
+def gm_tools_sp_facility():
+    if current_user.is_authenticated:
+        sp_facility_form = Notice()
+        if sp_facility_form.validate_on_submit() and sp_facility_form.markdown.data != '':
+            sp_facility = demjson.decode(sp_facility_form.markdown.data)
+            if sp_facility['items'] and sp_facility['defaultNoticeMsg']:
+                update_emergency_brake_info(sp_facility['defaultNoticeMsg'], sp_facility['items'])
+                pullActivityConfigNtf = gmCmdPro_pb2.PullActivityConfigNtf()
+                pullActivityConfigNtf.id = 2
+                mqAdaptor.send(encode(proto.msg_dict[gmCmdPro_pb2.PullActivityConfigNtf],
+                                      pullActivityConfigNtf.SerializeToString()), '/topic/GmTopic')
+                flash('updated!')
+            else:
+                flash('failed to update!')
+        return render_template('gm_tools_sp_facility.html', sp_facility_form=sp_facility_form,
+                               active_pane='sp_facility')
+    else:
+        return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/check_sp_facility', methods=['GET', 'POST'])
+@login_required
+def gm_tools_check_sp_facility():
+    if current_user.is_authenticated:
+        emergency_brake_info = list(get_energency_brake_info())
+        re = dict()
+        re['items'] = list()
+        if emergency_brake_info:
+            re['defaultNoticeMsg'] = emergency_brake_info[0]['defaultNoticeMsg']
+            for item in emergency_brake_info[0]['items']:
+                re['items'].append(item)
+        return demjson.encode(re, encoding='utf-8')
     else:
         return redirect(url_for('.login'))
 
@@ -533,9 +603,18 @@ def get_period_free_info():
     return mongo.db.cfg_periodfree.find({})
 
 
+def get_energency_brake_info():
+    return mongo.db.EmergencyBrake.find({})
+
+
 def update_period_free_info(heroes, guns):
     mongo.db.cfg_periodfree.delete_many({})
     mongo.db.cfg_periodfree.insert_one({'hero': heroes, 'gun': guns})
+
+
+def update_emergency_brake_info(msg, items):
+    mongo.db.EmergencyBrake.delete_many({})
+    mongo.db.EmergencyBrake.insert_one({'defaultNoticeMsg': msg, 'items': items})
     # info = list(mongo.db.cfg_periodfree.find({}))
     # if not info:
     #     return False
@@ -591,3 +670,12 @@ def query_player_from_redis(uuid):
     redis_info['gameServerId'] = redis_store.hget(dynamic_key, 'gameServerId')
     redis_info['online'] = redis_store.hget(dynamic_key, 'online')
     return redis_info
+
+
+def announcement_filestream_format(raw):
+    announcement = dict()
+    announcement['BoardDesc'] = dict()
+    infos = demjson.decode(raw, encoding='utf-8')
+    for i in range(0, infos.__len__()):
+        announcement['BoardDesc'][str(i)] = infos[i]
+    return StringIO(demjson.encode(announcement, encoding='utf-8'))

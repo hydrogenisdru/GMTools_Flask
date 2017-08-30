@@ -13,7 +13,7 @@ class Config:
     MQ_IP_ADDRESS = 'localhost'
     MONGO_URI = 'mongodb://123.59.71.187:27027/fire2'
     MONGO2_URI = 'mongodb://123.59.71.187:27027/analysis'
-    REDIS_URL = 'redis://:@123.59.71.187:6779/0'
+    REDIS_URL = 'redis://:@123.59.71.187:6779/14'
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost:3306/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PAGE_SIZE = 10

@@ -3,17 +3,18 @@
 {% extends 'gm_tools_layout.html' %}
 {% block styles %}
     {{ super() }}
-    <link href="{{ url_for('.static', filename='bootstrap-markdown/css/bootstrap-markdown.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('.static', filename='bootstrap-markdown/css/bootstrap-markdown.min.css') }}"
+          rel="stylesheet" xmlns="http://www.w3.org/1999/html">
 {% endblock %}
 {% block main_content %}
-    <h2 class="sub-header">GM Notice Sender</h2>
     <div class="container">
         <form method="POST" class="form" role="form">
             {{ form.csrf_token }}
-            <textarea name="markdown" id="markdown" data-provide="markdown" data-width="600" rows="10"></textarea>
-            <hr/>
-            <input class="btn btn-primary btn-sm" id="submit" name="submit" type="submit"
+            <input class="btn btn-primary" id="submit" name="submit" type="submit"
                    value="Summit">
+            <hr/>
+            <textarea name="markdown" id="markdown" data-provide="markdown" data-width="600"
+                      rows="10"></textarea>
         </form>
     </div>
 {% endblock %}

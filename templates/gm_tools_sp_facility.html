@@ -1,0 +1,120 @@
+{% set active_page = 'gm_tools' %}
+{% set active_side_nav_bar = 'sp_facility' %}
+{% extends 'gm_tools_layout.html' %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('.static', filename='bootstrap-markdown/css/bootstrap-markdown.min.css') }}"
+          rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+{% block head %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='jsoneditor.js') }}"></script>
+    <script>
+        JSONEditor.defaults.theme = 'bootstrap3';
+    </script>
+{% endblock %}
+{% block main_content %}
+    {% block flash_message %}
+        {{ super() }}
+    {% endblock %}
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#sp_facilityTab" data-toggle="tab">Special Facility Trigger</a></li>
+        <li><a href="#checkTab" data-toggle="tab">Check Current Special Facility</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane {% if "sp_facility" == active_pane %}active{% endif %}" id="sp_facilityTab">
+            <div class="table-responsive">
+                <br/>
+                <button id='submit' class="btn btn-primary">Submit Change
+                    {#                    <br/>#}
+                    {#                    <span id='valid_indicator'></span>#}
+                </button>
+                <hr/>
+                <h2></h2>
+                <div id='editor_holder'></div>
+                <form method="post" name="sp_facility" id="sp_facility_form" hidden="hidden">
+                    {{ sp_facility_form.csrf_token }}
+                    <textarea name="markdown" id="markdown" class="form-control" hidden="hidden"></textarea>
+                </form>
+            </div><!--/table-resp-->
+        </div><!--/tab-pane-->
+        <div class="tab-pane {% if "check" == active_pane %}active{% endif %}" id="checkTab">
+            <div class="table-responsive">
+                <br/>
+                <textarea name="markdown2" id="markdown2" readonly="readonly" rows="20" cols="50" class="form-control"></textarea>
+            </div><!--/table-resp-->
+        </div><!--/tab-pane-->
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/js/bootstrap-markdown.js') }}"></script>
+    <script src="{{ url_for('.static', filename='bootstrap-markdown/locale/bootstrap-markdown.zh.js') }}"></script>
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+        $(document).ready(function () {
+            $.post($SCRIPT_ROOT + "/gm/gmtools/check_sp_facility", function (resp) {
+                {#                var o = eval('(' + resp + ')');#}
+                var m = document.getElementById('markdown2');
+                m.value = resp;
+            });
+        });
+        var starting_value =
+        {
+            defaultNoticeMsg: "该功能暂未开放",
+            items: [
+                {
+                    left: 0,
+                    middle: true,
+                    right: "天梯赛暂时未开启!",
+                },
+                {
+                    left: 1,
+                    middle: false,
+                    right: "匹配赛暂时未开启!",
+                },
+            ],
+        };
+        var editor = new JSONEditor(document.getElementById('editor_holder'), {
+            schema: {
+                type: "object",
+                title: "Special Facility Trigger",
+                properties: {
+                    defaultNoticeMsg: {
+                        type: "string",
+                    },
+                    items: {
+                        type: "array",
+                        format: "tabs",
+                        items: {
+                            type: "object",
+                            title: "item",
+                            properties: {
+                                left: {
+                                    type: "integer",
+                                },
+                                middle: {
+                                    type: "boolean",
+                                },
+                                right: {
+                                    type: "string",
+                                },
+                            }
+                        }
+                    }
+                }
+            },
+            startval: starting_value,
+        });
+
+        // Hook up the submit button to log to the console
+        document.getElementById('submit').addEventListener('click', function () {
+            var json = editor.getValue();
+            var markdown = document.getElementById('markdown');
+            var sp_facility_form = document.getElementById('sp_facility_form');
+            markdown.value = JSON.stringify(json, null, 2);
+            sp_facility_form.submit();
+        });
+
+    </script>
+{% endblock %}
