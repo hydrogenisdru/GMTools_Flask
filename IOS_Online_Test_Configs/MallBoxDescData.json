@@ -1,0 +1,124 @@
+{
+  "MallId2Desc": {
+    "1": {
+      "MallDataId": 1,
+      "ItemId": 170,
+      "Count": 1,
+      "SalePrice": {
+        "1": 400
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": [
+          "2017-04-01",
+          "2017-05-01"
+        ]
+      },
+      "Discount": {}
+    },
+    "2": {
+      "MallDataId": 2,
+      "ItemId": 170,
+      "Count": 5,
+      "SalePrice": {
+        "2": 1880
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": [
+          "2017-04-01",
+          "2017-05-01"
+        ]
+      },
+      "Discount": {
+        "1": {
+          "SalePrice": 200,
+          "discount": 8
+        }
+      }
+    },
+    "3": {
+      "MallDataId": 3,
+      "ItemId": 170,
+      "Count": 10,
+      "SalePrice": {
+        "2": 3480
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": [
+          "2017-04-01",
+          "2017-05-01"
+        ]
+      },
+      "Discount": {
+        "1": {
+          "SalePrice": 400,
+          "discount": 8
+        }
+      }
+    },
+    "4": {
+      "MallDataId": 4,
+      "ItemId": 170,
+      "Count": 20,
+      "SalePrice": {
+        "2": 5880
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": [
+          "2017-04-01",
+          "2017-05-01"
+        ]
+      },
+      "Discount": {
+        "1": {
+          "SalePrice": 1000,
+          "discount": 8
+        }
+      }
+    },
+    "5": {
+      "MallDataId": 5,
+      "ItemId": 170,
+      "Count": 30,
+      "SalePrice": {
+        "2": 6880
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": [
+          "2017-04-01",
+          "2017-05-01"
+        ]
+      },
+      "Discount": {
+        "1": {
+          "SalePrice": 1700,
+          "discount": 8
+        }
+      }
+    }
+  }
+}

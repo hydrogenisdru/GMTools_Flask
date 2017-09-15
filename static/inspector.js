@@ -35,6 +35,7 @@ function isMonsterGunSkin(id) {
     return 12000000 <= id && id < 13000000;
 }
 
+
 function isDate(str) {
     if (str.length != 0) {
         var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/;

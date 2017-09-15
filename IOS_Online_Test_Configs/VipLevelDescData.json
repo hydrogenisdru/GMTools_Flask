@@ -1,0 +1,156 @@
+{
+  "VipLevelInfo": {
+    "0": {
+      "Exp": 0,
+      "Level": 0,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {},
+      "GiftBag": {},
+      "Welfare": {},
+	   "HeadBoxVip": "",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP7</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>125</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>9</color>次。\n4.每天可以购买<color=#3db32c>8</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>35</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>35</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>70</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>140</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>2~4</color>。\n10.每天可以购买<color=#3db32c>3</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>35%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>5</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>4</color>次。\n14.技能可以每日重置<color=#3db32c>3</color>次。\n15.<color=#3db32c>可以直接开启第5座矿山</color>。\n包含之前所有VIP包含的特权。"
+    },
+    "1": {
+      "Exp": 10,
+      "Level": 1,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50002": 1
+      },
+      "GiftBag": {
+        "172": 1,
+        "40140": 1
+      },
+      "Welfare": {
+        "0": 128
+      },
+	   "HeadBoxVip": "vip_bg_1",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP1</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>35</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>3</color>次。\n4.每天可以购买<color=#3db32c>2</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>5</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>5</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>10</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>20</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~2</color>。\n10.每天可以购买<color=#3db32c>1</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>5%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>2</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>2</color>次。\n14.技能可以每日重置<color=#3db32c>1</color>次。\n15.可以获得更多的每日签到奖励。\n包含之前所有VIP包含的特权。"
+    },
+    "2": {
+      "Exp": 100,
+      "Level": 2,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50002": 1
+      },
+      "GiftBag": {
+        "172": 2,
+        "40140": 1
+      },
+      "Welfare": {
+        "0": 188
+      },
+	   "HeadBoxVip": "vip_bg_2",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP1</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>35</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>3</color>次。\n4.每天可以购买<color=#3db32c>2</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>5</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>5</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>10</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>20</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~2</color>。\n10.每天可以购买<color=#3db32c>1</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>5%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>2</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>2</color>次。\n14.技能可以每日重置<color=#3db32c>1</color>次。\n15.可以获得更多的每日签到奖励。\n包含之前所有VIP包含的特权。"
+    },
+    "3": {
+      "Exp": 500,
+      "Level": 3,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50002": 1
+      },
+      "GiftBag": {
+        "172": 3,
+        "40141": 1
+      },
+      "Welfare": {
+        "0": 288
+      },
+	   "HeadBoxVip": "vip_bg_3",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP2</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>50</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>4</color>次。\n4.每天可以购买<color=#3db32c>3</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>10</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>10</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>20</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>40</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~3</color>。\n10.每天可以购买<color=#3db32c>1</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>10%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>3</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>2</color>次。\n14.技能可以每日重置<color=#3db32c>1</color>次。\n15.<color=#3db32c>副本扫荡无冷却时间</color>。\n包含之前所有VIP包含的特权。"
+    },
+    "4": {
+      "Exp": 2000,
+      "Level": 4,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50013": 1
+      },
+      "GiftBag": {
+        "0": 388,
+        "170": 1
+      },
+      "Welfare": {
+        "0": 288,
+        "1": 50
+      },
+	   "HeadBoxVip": "vip_bg_4",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP3</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>65</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>5</color>次。\n4.每天可以购买<color=#3db32c>4</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>15</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>15</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>30</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>60</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~3</color>。\n10.每天可以购买<color=#3db32c>2</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>15%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>3</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>3</color>次。\n14.技能可以每日重置<color=#3db32c>1</color>次。\n15.<color=#3db32c>可以直接开启第3座矿山</color>。\n包含之前所有VIP包含的特权。"
+    },
+    "5": {
+      "Exp": 5000,
+      "Level": 5,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50013": 1
+      },
+      "GiftBag": {
+        "0": 588,
+        "170": 2
+      },
+      "Welfare": {
+        "0": 388,
+        "1": 60
+      },
+	   "HeadBoxVip": "vip_bg_5",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP4</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>80</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>6</color>次。\n4.每天可以购买<color=#3db32c>5</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>20</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>20</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>40</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>80</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~3</color>。\n10.每天可以购买<color=#3db32c>2</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>20%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>4</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>3</color>次。\n14.技能可以每日重置<color=#3db32c>2</color>次。\n包含之前所有VIP包含的特权。"
+    },
+    "6": {
+      "Exp": 10000,
+      "Level": 6,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50013": 1
+      },
+      "GiftBag": {
+        "0": 888,
+        "30036": 1
+      },
+      "Welfare": {
+        "0": 488,
+        "1": 70
+      },
+	   "HeadBoxVip": "vip_bg_6",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP5</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>95</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>7</color>次。\n4.每天可以购买<color=#3db32c>6</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>25</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>25</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>50</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>100</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~4</color>。\n10.每天可以购买<color=#3db32c>2</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>25%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>4</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>3</color>次。\n14.技能可以每日重置<color=#3db32c>2</color>次。\n15.<color=#3db32c>可以直接开启第4座矿山</color>。\n16.<color=#3db32c>开启强化回退功能</color>。\n包含之前所有VIP包含的特权。"
+    },
+    "7": {
+      "Exp": 20000,
+      "Level": 7,
+      "EquipSlotStarLockCountAdd": 0,
+      "Privilege": {
+        "50006": 1
+      },
+      "GiftBag": {
+        "20027": 1,
+        "30035": 1
+      },
+      "Welfare": {
+        "0": 488,
+        "1": 80
+      },
+	   "HeadBoxVip": "vip_bg_7",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP6</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>110</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>8</color>次。\n4.每天可以购买<color=#3db32c>7</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>30</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>30</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>60</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>120</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>1~4</color>。\n10.每天可以购买<color=#3db32c>2</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>30%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>5</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>4</color>次。\n14.技能可以每日重置<color=#3db32c>2</color>次。\n15.<color=#3db32c>部件增幅时的在槽位数达到</color><color=#FF0000>5</color><color=#3db32c>个以后可锁定星数增加1</color>。\n14.可以在公会教会开启弥撒\n包含之前所有VIP包含的特权。"
+    },
+    "8": {
+      "Exp": 50000,
+      "Level": 8,
+      "EquipSlotStarLockCountAdd": 1,
+      "Privilege": {
+        "50006": 1
+      },
+      "GiftBag": {
+        "20026": 1,
+        "30034": 1
+      },
+      "Welfare": {
+        "0": 488,
+        "1": 90
+      },
+	   "HeadBoxVip": "vip_bg_8",
+      "PrivilegeDesc": "1.可以购买<color=#3db32c>VIP7</color>的尊享礼包。\n2.每天可以使用钻石刷新神秘商店<color=#3db32c>125</color>次。\n3.每天可以使用钻石刷新佣兵商店<color=#3db32c>9</color>次。\n4.每天可以购买<color=#3db32c>8</color>个能量胶囊。\n5.每天可以购买<color=#3db32c>35</color>个枪魂胶囊（大）。\n6.每天可以购买<color=#3db32c>35</color>个增幅补给包。\n7.每天可以购买<color=#3db32c>70</color>个佣兵勋章。\n8.每天可以购买<color=#3db32c>140</color>个忏悔石。\n9.部件强化的暴击区间为<color=#3db32c>2~4</color>。\n10.每天可以购买<color=#3db32c>3</color>次精英副本\n11.日常活动的赏金与历练活动可以获得额外<color=#3db32c>35%</color>的产出。\n12.每日每个关卡可购买<color=#3db32c>5</color>次。\n13.神秘商店免费刷新可以储存<color=#3db32c>4</color>次。\n14.技能可以每日重置<color=#3db32c>3</color>次。\n15.<color=#3db32c>可以直接开启第5座矿山</color>。\n包含之前所有VIP包含的特权。"
+    }
+  },
+  "Rule": "1、贵族是<枪神默示录II>游戏内的尊贵的身份标示，首次开通仅需10贵族积分；\n2、贵族系统目前开放8个等级，用户通过累计贵族积分即可提升等级；\n3、贵族积分通过消费点劵获得，消费1点劵=获得1积分；\n4、贵族身份仅在当前大区生效；\n5、成为贵族后，每个自然月内在当前大区消费任意金额的点劵即可维持贵族等级；\n6、每次达到新的贵族等级时，可以立即获得该贵族等级的周礼包（仅1次）\n7、若自然月内在当前大区没有消费点劵，跨月后贵族等级将下降1级，直到降到0，即失去贵族身份；\n8、贵族降级或失去贵族身份后，只要在任意自然月内消费任意金额的点劵，即可立即恢复到之前的最高等级；"
+}

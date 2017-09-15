@@ -1,0 +1,12 @@
+{
+  "DailyGiftMailToFriend": {
+    "ItemContained": [
+      {
+        "Count": 20,
+        "Id": 0
+      }
+    ],
+    "SendLimit": 999,
+    "ObtainLimit": 10
+  }
+}

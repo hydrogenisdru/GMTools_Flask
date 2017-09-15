@@ -1,0 +1,41 @@
+{
+	"Id2Desc" :
+	{
+		"1":
+		{
+			"ID":1,
+			"JPushRegIDPrefix" : "b_",
+			"GoodsIDPrefix" : "com.shanghai"
+		},
+		"2":
+		{
+			"ID":2,
+			"JPushRegIDPrefix" : "s_",
+			"GoodsIDPrefix" : "com.beijing2"
+		},
+		"3":
+		{
+			"ID":3,
+			"JPushRegIDPrefix" : "t_",
+			"GoodsIDPrefix" : "com.tianjin"
+		},
+		"4":
+		{
+			"ID":4,
+			"JPushRegIDPrefix" : "c_",
+			"GoodsIDPrefix" : "com.chengdu"
+		},
+		"5":
+		{
+			"ID":5,
+			"JPushRegIDPrefix" : "f_",
+			"GoodsIDPrefix" : "com.huogufv.tw"
+		},
+		"6":
+		{
+			"ID":6,
+			"JPushRegIDPrefix" : "y_",
+			"GoodsIDPrefix" : "com.huogufv.us"
+		}
+	}
+}

@@ -20,6 +20,11 @@ msg[PullAnnouncementNtf] = 10113
 # msg[S2SPayFeedBackReq] = 10116
 
 msg[UpdatePatchNtf] = 10117
+# msg[ConsiderOfflineNtf] = 10118
+#
+# msg[MatchRoomPlayerResetNtf] = 10119
+
+msg[UpdateGameConfigNtf] = 10120
 
 
 class Server2ServerProtocolProvider:
@@ -56,3 +61,12 @@ class Server2ServerProtocolProvider:
 
         if id == 10117:
             return UpdatePatchNtf().ParseFromString(data)
+
+        # if id == 10118:
+        #     return ConsiderOfflineNtf().ParseFromString(data)
+        #
+        # if id == 10119:
+        #     return MatchRoomPlayerResetNtf().ParseFromString(data)
+
+        if id == 10120:
+            return UpdateGameConfigNtf().ParseFromString(data)

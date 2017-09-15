@@ -17,6 +17,10 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost:3306/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PAGE_SIZE = 10
+    UPLOAD_FOLDER = '/Users/zouyang/Desktop/redis_data'
+    DEPLOY_CONFIG_FOLDER = '/Users/zouyang/Desktop/redis_data'
+    DEPLOY_SHELL_SCRIPT = 'config_update.sh'
+    UNZIP_FOLER_FIX = 'unzip_folder'
 
     JOBS = [
         {
@@ -42,10 +46,10 @@ class Config:
     @staticmethod
     def init_app(app):
         app.extensions['bootstrap']['cdns']['jquery'] = WebCDN(
-            '//cdn.bootcss.com/jquery/1.11.3/'
+            '//cdn.bootcss.com/jquery/2.1.1/'
         )
         app.extensions['bootstrap']['cdns']['bootstrap'] = WebCDN(
-            '//cdn.bootcss.com/bootstrap/3.3.5/'
+            '//cdn.bootcss.com/bootstrap/3.3.7/'
         )
         app.config['MONGO_AUTO_START_REQUEST'] = False
 

@@ -1,0 +1,224 @@
+{
+  "id2desc": {
+    "1": {
+      "id": 1,
+      "eventId": 1,
+      "progressNode": [
+        {
+          "progress": 1000,
+          "score": 50
+        },
+        {
+          "progress": 2000,
+          "score": 100
+        },
+        {
+          "progress": 3000,
+          "score": 150
+        }
+      ]
+    },
+    "2": {
+      "id": 2,
+      "eventId": 2,
+      "progressNode": [
+        {
+          "progress": 10000,
+          "score": 50
+        },
+        {
+          "progress": 20000,
+          "score": 100
+        },
+        {
+          "progress": 30000,
+          "score": 150
+        }
+      ]
+    },
+    "3": {
+      "id": 3,
+      "eventId": 3,
+      "progressNode": [
+        {
+          "progress": 1000,
+          "score": 50
+        },
+        {
+          "progress": 2000,
+          "score": 100
+        },
+        {
+          "progress": 3000,
+          "score": 150
+        }
+      ]
+    },
+    "4": {
+      "id": 4,
+      "eventId": 4,
+      "progressNode": [
+        {
+          "progress": 10,
+          "score": 50
+        },
+        {
+          "progress": 20,
+          "score": 100
+        },
+        {
+          "progress": 30,
+          "score": 150
+        }
+      ]
+    },
+    "5": {
+      "id": 5,
+      "eventId": 5,
+      "progressNode": [
+        {
+          "progress": 5,
+          "score": 50
+        },
+        {
+          "progress": 10,
+          "score": 100
+        },
+        {
+          "progress": 15,
+          "score": 150
+        }
+      ]
+    },
+    "6": {
+      "id": 6,
+      "eventId": 9,
+      "progressNode": [
+        {
+          "progress": 2,
+          "score": 50
+        },
+        {
+          "progress": 5,
+          "score": 100
+        },
+        {
+          "progress": 7,
+          "score": 150
+        }
+      ]
+    },
+    "7": {
+      "id": 7,
+      "eventId": 10,
+      "progressNode": [
+        {
+          "progress": 2,
+          "score": 50
+        },
+        {
+          "progress": 5,
+          "score": 100
+        },
+        {
+          "progress": 7,
+          "score": 150
+        }
+      ]
+    },
+    "8": {
+      "id": 8,
+      "eventId": 11,
+      "progressNode": [
+        {
+          "progress": 2,
+          "score": 50
+        },
+        {
+          "progress": 5,
+          "score": 100
+        },
+        {
+          "progress": 7,
+          "score": 150
+        }
+      ]
+    },
+    "9": {
+      "id": 9,
+      "eventId": 12,
+      "progressNode": [
+        {
+          "progress": 2,
+          "score": 50
+        },
+        {
+          "progress": 5,
+          "score": 100
+        },
+        {
+          "progress": 7,
+          "score": 150
+        }
+      ]
+    },
+    "10": {
+      "id": 10,
+      "eventId": 16,
+      "progressNode": [
+        {
+          "progress": 2,
+          "score": 50
+        },
+        {
+          "progress": 5,
+          "score": 100
+        },
+        {
+          "progress": 7,
+          "score": 150
+        }
+      ]
+    }
+  },
+  "level2exp": {
+    "1": 100,
+    "2": 200,
+    "3": 300,
+    "4": 400,
+    "5": 500,
+    "6": 600,
+    "7": 700,
+    "8": 800,
+    "9": 900,
+    "10": 1000,
+    "11": 1100,
+    "12": 1200,
+    "13": 1300,
+    "14": 1400,
+    "15": 1500
+  },
+  "level2reward": {
+    "2": [
+      {
+        "id": 110002,
+        "count": 1,
+        "params": []
+      }
+    ],
+    "5": [
+      {
+        "id": 1,
+        "count": 500,
+        "params": []
+      }
+    ],
+    "10": [
+      {
+        "id": 11000002,
+        "count": 1,
+        "params": []
+      }
+    ]
+  }
+}

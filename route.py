@@ -1,18 +1,22 @@
+import os, re
 from flask import render_template, request, redirect, url_for, flash, abort
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_paginate import Pagination
 from flask_pymongo import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from werkzeug.utils import secure_filename
 from form import *
 from application import login_manager, mongo, mongo_analysis, redis_store, mqAdaptor, proto, bluePrint, config, \
-    a_updater
+    cdn_updater
 from models import User, PlayerInfo
 from proto import gmCmdPro_pb2
 from proto.encrypt import encode
 import datetime
 import demjson
 from cStringIO import StringIO
+import zlib, commands
+
+ALLOWED_EXTENSIONS = set(['json', 'zip'])
 
 
 @bluePrint.route('/gm')
@@ -117,7 +121,7 @@ def gm_tools_announcement():
         announcement_form = Notice()
         if announcement_form.validate_on_submit() and announcement_form.markdown.data != '':
             content = announcement_filestream_format(announcement_form.markdown.data)
-            if a_updater.update(content):
+            if cdn_updater.update('announcement', 'NoticeBoardDescData.json', 'application/json', content):
                 flash('updated!')
             else:
                 flash('failed to update!')
@@ -131,7 +135,7 @@ def gm_tools_announcement():
 @login_required
 def gm_tools_check_announcement():
     if current_user.is_authenticated:
-        text = a_updater.get_file()
+        text = cdn_updater.get_default_file()
         if text:
             return text
         else:
@@ -235,8 +239,8 @@ def gm_tools_system_mail():
             for mail in mails:
                 playerList = list()
                 for name in mail['toWhom']:
-                    for player in query_player(name):
-                        playerList.append(player.uuid)
+                    for player in query_player_from_mongo(name):
+                        playerList.append(player['playerId'])
                 mail_info = {
                     'template': mail['template'],
                     'content': mail['content'],
@@ -246,7 +250,7 @@ def gm_tools_system_mail():
                     'toWhom': playerList
                 }
                 info_string = demjson.encode(mail_info, encoding='utf-8')
-                if mail['toWhere'] == '' and playerList == '':
+                if mail['toWhere'].__len__() == 0 and playerList.__len__() == 0:
                     flash('no player to be send! ' + info_string)
                 else:
                     add_system_mail(mail_info)
@@ -304,7 +308,7 @@ def gm_tools_controls(page):
             if search_form.searchInfo.data == 'none':
                 flash('search:please enter search info')
             else:
-                player_list = query_player(search_form.searchInfo.data)
+                player_list = query_player_from_mongo(search_form.searchInfo.data)
         pagination = Pagination(page=page, total=player_list.__len__(),
                                 per_page=getattr(config['default'], 'PAGE_SIZE'),
                                 bs_version='3')
@@ -335,6 +339,201 @@ def gm_tools_controls_kick(uuid):
         return redirect(url_for('.gm_tools_controls'))
     else:
         return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/upload_config', methods=['GET', 'POST'])
+@login_required
+def gm_tools_upload_config():
+    if current_user.is_authenticated:
+        return render_template('gm_tools_upload_config.html')
+    else:
+        return redirect(url_for('.login'))
+
+
+@bluePrint.route('/gm/gmtools/upload_server_config', methods=['GET', 'POST'])
+def gm_tools_upload_server_config():
+    result = {}
+    upload_folder = getattr(config['default'], 'UPLOAD_FOLDER')
+    while True:
+        if request.method == 'GET':
+            result = {"error": "GET method is not allowed."}
+            break
+        files = request.files.getlist('inputfile[]')
+        if not files:
+            result = {"error": "No files uploaded."}
+            break
+        errorKeys = []
+        index = 0
+        os.chdir(upload_folder)
+        files_in_upload_folder = []
+        changed_files = []
+        for value in os.listdir(upload_folder):
+            if not os.path.isdir(value):
+                files_in_upload_folder.append(value)
+        for file in files:
+            if not allowed_file(file.filename):
+                errorKeys.append(index)
+                index += 1
+                continue;
+            try:
+                filename = secure_filename(file.filename)
+                save_flag = True
+                for value in files_in_upload_folder:
+                    if value == filename:
+                        full_path = upload_folder + '/' + filename
+                        with open(full_path, 'r') as f:
+                            local_sha = cdn_updater.get_sha(f.read())
+                            upload_sha = cdn_updater.get_sha(file.stream.read())
+                            if local_sha == upload_sha:
+                                save_flag = False
+                                break
+                if save_flag:
+                    file.save(os.path.join(upload_folder, filename))
+                    changed_files.append(filename)
+                index += 1
+            except Exception as e:
+                errorKeys.append(index)
+                index += 1
+                continue
+        if changed_files.__len__() == 0:
+            result = {"error": "no file changed"}
+            break;
+        os.chdir(getattr(config['default'], 'DEPLOY_CONFIG_FOLDER'))
+        status, output = commands.getstatusoutput('sh ' + getattr(config['default'], 'DEPLOY_SHELL_SCRIPT'))
+        if status != 0:
+            result = {"error": output}
+            break;
+        update_config_ntf = gmCmdPro_pb2.UpdateGameConfigNtf()
+        for changed_file in changed_files:
+            update_config_ntf.configName.append(changed_file)
+        mqAdaptor.send(
+            encode(proto.msg_dict[gmCmdPro_pb2.UpdateGameConfigNtf], update_config_ntf.SerializeToString()),
+            '/topic/GmTopic')
+        break
+    return demjson.encode(result, encoding='utf-8')
+
+
+@bluePrint.route('/gm/test/get_list_folder', methods=['GET'])
+def test_get_list_folder():
+    list_folder = cdn_updater.get_list_folder()
+    return 's'
+
+
+@bluePrint.route('/gm/gmtools/upload_cdn_file', methods=['GET', 'POST'])
+def gm_tools_upload_cdn_config():
+    result = {}
+    stop_flag = False
+    while True:
+        if request.method == 'GET':
+            result = {"error": "GET method is not allowed."}
+            break;
+        file = request.files['inputcdnfile[]']
+        if not file and not allowed_file(file.filename):
+            result = {"error": "file type is not allowed"}
+            break;
+        filename = secure_filename(file.filename)
+        full_path = os.path.join(getattr(config['default'], 'UPLOAD_FOLDER'), filename)
+        unzip_folder = os.path.join(getattr(config['default'], 'UPLOAD_FOLDER'),
+                                    getattr(config['default'], 'UNZIP_FOLER_FIX'))
+        if not os.path.exists(unzip_folder):
+            os.makedirs(unzip_folder)
+        os.chdir(getattr(config['default'], 'UPLOAD_FOLDER'))
+        status, output = commands.getstatusoutput('unzip -o ' + full_path + ' -d ' + unzip_folder)
+        if status != 0:
+            result = {"error": output}
+            break;
+        L = []
+        os.chdir(unzip_folder)
+        for files in os.walk(unzip_folder):
+            for file in files:
+                L.append(file)
+        # L[0] = root folder full path
+        # L[1] = sub folder names in root folder
+        # L[2] = files in the root folder
+        # L[3] = sub folder 1 full path
+        # L[4] = sub sub folder names in sub folder
+        # L[5] = files in the sub folder
+        upload_folder_list = []
+        upload_files = dict()
+        base_cdn_folder_name = "/ClientAssets_Test"
+        for index in range(0, L.__len__()):
+            if index % 3 == 0:  # folder_path
+                upload_folder_list.append(L[index].replace(unzip_folder, base_cdn_folder_name) + '/')
+            if index % 3 == 2:
+                upload_files[upload_folder_list[index / 3]] = list()
+                for value in L[index]:
+                    if os.path.basename(value)[0] == '.':
+                        continue
+                    if re.match(r'genMd5\.py', os.path.basename(value)):
+                        full_path = upload_folder_list[index / 3].replace(base_cdn_folder_name, unzip_folder) + value
+                        status, output = commands.getstatusoutput('python ' + full_path)
+                        if status != 0:
+                            result = {"error": output}
+                            stop_flag = True
+                            break
+                    upload_files[upload_folder_list[index / 3]].append(value)
+        if stop_flag:
+            break
+        all_files_in_cdn = cdn_updater.walk_all_folders(walking_folders=[u"/ClientAssets_Test/"])
+        if not all_files_in_cdn:
+            result = {"error": "get cdn file failed"}
+            break;
+        # create qcloud folders and upload different files
+        upload_cnt = 0
+        uploaded_files = []
+        failed_upload_cnt = 0
+        for folder_path in upload_folder_list:
+            if not all_files_in_cdn.has_key(folder_path):
+                if not cdn_updater.create_folder(folder_path):
+                    result = {"error": "create cdn dir failed"}
+                    stop_flag = True
+                    break;
+                if upload_files.has_key(folder_path):
+                    for f in upload_files[folder_path]:
+                        local_path = folder_path.replace(base_cdn_folder_name, unzip_folder) + f
+                        cos_path = folder_path + f
+                        if os.path.isdir(local_path):
+                            continue
+                        if cdn_updater.upload_file(cos_path=cos_path, local_path=local_path):
+                            upload_cnt += 1
+                            uploaded_files.append(cos_path)
+                        else:
+                            failed_upload_cnt += 1
+            else:
+                for f in upload_files[folder_path]:
+                    upload_flag = True
+                    local_path = folder_path.replace(base_cdn_folder_name, unzip_folder) + f
+                    if os.path.isdir(local_path):
+                        continue
+                    for data in all_files_in_cdn[folder_path]:
+                        if f == 'BufDescDataGospel.json':
+                            h = 'hello'
+                        if f == data[u'name']:
+                            with open(local_path, 'r') as compare_f:
+                                f_sha = cdn_updater.get_sha(compare_f.read())
+                                if f_sha == data[u'sha']:
+                                    upload_flag = False
+                                    break;
+                    if upload_flag:
+                        cos_path = folder_path + f
+                        if cdn_updater.upload_file(cos_path=cos_path, local_path=local_path):
+                            upload_cnt += 1
+                            uploaded_files.append(cos_path)
+                        else:
+                            failed_upload_cnt += 1
+        if stop_flag:
+            break
+        if failed_upload_cnt > 0:
+            result = {"error": "upload some files failed"}
+            break
+        if upload_cnt == 0:
+            result = {"error": "no file changed"}
+            break;
+        if not cdn_updater.refresh_cdn_dir(folder_name=base_cdn_folder_name):
+            result = {"error": "refresh cdn dir failed"}
+            break;
+        break;
+    return demjson.encode(result, encoding='utf-8')
 
 
 @bluePrint.route('/gm/gmtools/manage', methods=['GET', 'POST'], defaults={'page': 1})
@@ -649,6 +848,10 @@ def query_player(search_info):
     return result
 
 
+def query_player_from_mongo(nick):
+    return list(mongo.db.player.find({'nick': nick}))
+
+
 def query_player_from_mysql(uuid):
     mysql_info = dict()
     p = PlayerInfo.query.filter_by(uuid=uuid)
@@ -679,3 +882,16 @@ def announcement_filestream_format(raw):
     for i in range(0, infos.__len__()):
         announcement['BoardDesc'][str(i)] = infos[i]
     return StringIO(demjson.encode(announcement, encoding='utf-8'))
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+
+def stream_gzip_decompress(stream):
+    dec = zlib.decompressobj(32 + zlib.MAX_WBITS)  # offset 32 to skip the header
+    for chunk in stream:
+        rv = dec.decompress(chunk)
+        if rv:
+            yield rv

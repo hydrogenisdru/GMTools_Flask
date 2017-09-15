@@ -1,0 +1,54 @@
+{
+  "Id2Desc": {
+    "0": {
+      "Id": 0,
+      "Title": "系统公告",
+      "Content": "系统公告内容"
+    },
+    "1": {
+      "Id": 1,
+      "Title": "您的英雄<color=#FF0000>{0}</color>体验时间已过期",
+      "Content": "您的英雄<color=#FF0000>{0}</color>体验时间已过期"
+    },
+    "2": {
+      "Id": 2,
+      "Title": "您的枪械<color=#FF0000>{0}</color>体验时间已过期",
+      "Content": "您的枪械<color=#FF0000>{0}</color>体验时间已过期"
+    },
+    "3": {
+      "Id": 3,
+      "Title": "您的英雄<color=#FF0000>{0}</color>皮肤<color=#FF0000>{1}</color>体验时间已过期",
+      "Content": "您的英雄<color=#FF0000>{0}</color>皮肤<color=#FF0000>{1}</color>体验时间已过期"
+    },
+    "4": {
+      "Id": 4,
+      "Title": "您的枪械<color=#FF0000>{0}</color>皮肤<color=#FF0000>{1}</color>体验时间已过期",
+      "Content": "您的枪械<color=#FF0000>{0}</color>皮肤<color=#FF0000>{1}</color>体验时间已过期"
+    },
+    "5": {
+      "Id": 5,
+      "Title": "{0}",
+      "Content": "好友{0}给您赠送了金币"
+    },
+    "6": {
+      "Id": 6,
+      "Title": "系统邮件",
+      "Content": "{0}"
+    },
+    "7": {
+      "Id": 7,
+      "Title": "系统邮件",
+      "Content": "{0}"
+    },
+    "8": {
+      "Id": 8,
+      "Title": "贵族礼包",
+      "Content": "尊敬的枪神，丰富的贵族礼包已经给您送上~"
+    },
+    "9": {
+      "Id": 9,
+      "Title": "贵族福利",
+      "Content": "尊敬的枪神，如下是您该周的贵族福利。感谢您对我们的支持。"
+    }
+  }
+}

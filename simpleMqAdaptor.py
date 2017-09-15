@@ -1,4 +1,5 @@
 import stomp
+import datetime
 
 
 class MyListener(object):
@@ -25,3 +26,9 @@ class SimpleMqAdaptor:
 
     def send(self, message, destination):
         self.conn.send(body=message, destination=destination)
+
+    def get_listener(self):
+        if self.conn.get_listener('MyListener'):
+            return self.conn.get_listener('MyListener')
+        else:
+            return None

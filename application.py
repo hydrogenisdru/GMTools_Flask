@@ -9,7 +9,7 @@ from flask_babel import Babel
 from flask_moment import Moment
 from flask_redis import FlaskRedis
 from simpleMqAdaptor import SimpleMqAdaptor
-from announcementUpdater import AnnouncementUpdater
+from cdnUpdater import CdnUpdater
 from proto.Server2ServerProtocolProvider import Server2ServerProtocolProvider
 
 # from flask_apscheduler import APScheduler
@@ -23,7 +23,7 @@ moment = Moment()
 mysql_db = SQLAlchemy()
 redis_store = FlaskRedis()
 mqAdaptor = SimpleMqAdaptor('localhost')
-a_updater = AnnouncementUpdater()
+cdn_updater = CdnUpdater()
 proto = Server2ServerProtocolProvider()
 # scheduler = APScheduler()
 bluePrint = Blueprint('blue_print', __name__, static_folder='static', template_folder='templates')

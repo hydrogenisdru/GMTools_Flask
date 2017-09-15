@@ -1,0 +1,1228 @@
+﻿{
+  "GuideProcess": {
+    "0": {
+      "Id": 0,
+      "Desc": "战斗引导",
+      "OpenLevel": 0,
+      "Priority": 0,
+      "Process": [
+        {
+          "ProcessId": 0,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "欢迎来到枪神世界_(●｀_´●)_，让我们先熟悉一下战斗操作",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15092,
+              "VideoId": 1
+            },
+            {
+              "Desc": "使用推荐手势进行游戏，获胜更轻松哦",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": 7,
+              "HandleTypeParams": 0,
+              "AnchorPos": 6,
+              "AudioId": 15093,
+              "VideoId": 1
+            },
+            {
+              "Desc": "在左半屏幕滑→动手指会出现虚拟摇杆,操作摇杆可以使角色移动。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-0",
+              "HandleType": 5,
+              "HandleTypeParams": 0,
+              "AnchorPos": 3,
+              "AudioId": 15094,
+              "VideoId": 1
+            },
+            {
+              "Desc": "现在让我们自己尝试一下，移动到指定目的地",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15095,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 1,
+          "AutoToNextId": -1,
+          "IsEndProcess":1,
+          "ProcessDetail": [
+            {
+              "Desc": "这里是您当前使用的枪械弹药量，每次射击都会消耗弹药。但是不用担心，子弹会随着时间慢慢恢复(。-`ω´-)",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-2",
+              "HandleType": 1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 7,
+              "AudioId": 15096,
+              "VideoId": 1
+            },
+            {
+              "Desc": "这里是射击摇杆，点击或长按摇杆可以进行射击，按住的同时滑动手指可以控制射击方向",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-1",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15097
+            }
+          ]
+        },
+        {
+          "ProcessId": 2,
+          "AutoToNextId": -1,
+          "IsEndProcess":1,
+          "ProcessDetail": [
+            {
+              "Desc": "前方出现敌人，在游戏中你的敌人会以红色血条来表示。快试着用手上的武器击败他吧~",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "",
+              "HandleType": 0,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 0,
+              "AudioId": 15098,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 3,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "好厉害！！那么快就掌握了射击技巧，那么让我们向下一个目的地移动吧",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 500,
+              "AnchorPos": 3,
+              "AudioId": 15099,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 4,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "战斗中，可以选择佩戴两把武器进行战斗，点击此处可以换枪。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-3",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 0,
+              "AudioId": 15100,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 5,
+          "AutoToNextId": 6,
+          "ProcessDetail": [
+            {
+              "Desc": "这是一把狙击步枪，射击模式有别于刚才的手枪。当按下射击摇杆后，会出现瞄准线。同时你将会获得和枪械射程同等的视野。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-4",
+              "HandleType": 0,
+              "HandleTypeParams": 14000,
+              "AnchorPos": 2,
+              "AudioId": 15101,
+              "VideoId": 1
+            },
+            {
+              "Desc": "瞄准需要【长按】射击摇杆。瞄准的同时，可以滑动手指调整射击方向。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-4",
+              "HandleType": 5,
+              "HandleTypeParams": 8000,
+              "AnchorPos": 0,
+              "AudioId": 15102,
+              "VideoId": 1
+            },
+            {
+              "Desc": "瞄准时间越长，射击精度会越高，若在瞄准范围缩小成直线之前【松开】射击按钮，会向瞄准范围内的随机角度进行射击。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-4",
+              "HandleType": 2,
+              "HandleTypeParams": 12000,
+              "AnchorPos": 0,
+              "AudioId": 15103,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 6,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "掌握狙击步枪的射击方式会使得你在战斗中如鱼得水，先试着使用狙击步枪来击杀远处的敌人。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 8000,
+              "AnchorPos": 0,
+              "AudioId": 15104,
+              "VideoId": 1
+            },
+            {
+              "Desc": "尝试用狙击枪瞄准敌人脚底光圈，当瞄准范围缩至一根直线时，松开右手即可精确命中。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "",
+              "HandleType": 0,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 0,
+              "AudioId": 15104,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 7,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "千里之外取人首级是不是很带感！游戏内每种武器都有自己的特殊用途和操作技巧，需要你在游戏内不断精进才能登上枪神的宝座哟！",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 0,
+              "AnchorPos": 3,
+              "AudioId": 15105,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 8,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "在每张地图的固定位置上会刷新各种道具来辅助战斗。你面前的是弹药包，拾取后可以立刻补充损失的弹药。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": 7,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15106,
+              "VideoId": 1
+            },
+            {
+              "Desc": "只要操控英雄移动到道具上面，就能拾取道具啦~",
+              "Is2D": false,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "SceneData/SceneDataNEWBIE1-0",
+              "HandleType": 9,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 0,
+              "AudioId": 15107,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 9,
+          "AutoToNextId": -1,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "真棒，让我们进行最后一步的学习吧，不要急马上就能结束啦~",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15108,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 10,
+          "AutoToNextId": 11,
+          "IsEventSave": true,
+          "ProcessDetail": [
+            {
+              "Desc": "要记住，躲在迷雾中，敌方玩家是不会看到你的。除非你们处于同一片迷雾中，但是只要你进行攻击，就会暴露自己的位置哦。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": 7,
+              "HandleTypeParams": 2000,
+              "AnchorPos": 3,
+              "AudioId": 15109,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 11,
+          "AutoToNextId": -1,
+          "IsEventEnd": true,
+          "ProcessDetail": [
+            {
+              "Desc": "基础教学结束，每完成一个引导教学，都能领取一份新手奖励，不要忘了去领取哦。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 2000,
+              "AnchorPos": 3,
+              "AudioId": 15110,
+              "VideoId": 1
+            }
+          ]
+        }
+      ],
+      "IsServerStore": false
+    },
+    "1": {
+      "Id": 1,
+      "Desc": "战斗引导2",
+      "OpenLevel": 0,
+      "Priority": 1,
+      "Process": [
+        {
+          "ProcessId": 0,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "接下来，我们来学习一下战斗的进阶操作。点击快速游戏。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/MainUI/MainUIView-0",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15111,
+              "VideoId": 1
+            },
+            {
+              "Desc": "点击新手训练营。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/MainUI/MatchView-0",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15112,
+              "VideoId": 1
+            },
+            {
+              "Desc": "进入进阶教学关卡。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/MainUI/TrainCampView-0",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15113,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 1,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "每场战斗开始之前，我们需要先选定需要使用的英雄和枪械。如何根据战场局势以及英雄、枪械的配比来进行战斗准备是取胜的关键。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-0",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15114,
+              "VideoId": 1
+            },
+            {
+              "Desc": "英雄选择好之后，继续点击枪械标签页，来选择该英雄使用的枪械。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-1",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15115,
+              "VideoId": 1
+            },
+            {
+              "Desc": "选中的枪械,只要再次点击就能取消选中状态。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-2",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15116,
+              "VideoId": 1
+            },
+            {
+              "Desc": "每个英雄可以佩戴两把枪械进入战斗，但是需要注意英雄的【负重】会影响到他使用特定枪械时的移动速度。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-3",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15117,
+              "VideoId": 1
+            },
+            {
+              "Desc": "全部选择完毕后，可以点击准备按钮告知队伍中的其他玩家你已经准备就绪。~",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-4",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15118,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 2,
+          "AutoToNextId": 3,
+          "ProcessDetail": [
+            {
+              "Desc": "介绍技能",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": 7,
+              "HandleTypeParams": 3000,
+              "AnchorPos": 6,
+              "AudioId": 7000,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 3,
+          "AutoToNextId": 4,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "让我们学习如何释放英雄技能，首先按住技能键",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-5",
+              "HandleType": 2,
+              "HandleTypeParams": 5000,
+              "AnchorPos": 2,
+              "AudioId": 15119,
+              "VideoId": 1
+            },
+            {
+              "Desc": "然后左右拖动控制技能释放方向",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-5",
+              "HandleType": 5,
+              "HandleTypeParams": 4000,
+              "AnchorPos": 2,
+              "AudioId": 15120,
+              "VideoId": 1
+            },
+            {
+              "Desc": "最后松手放出技能，或者滑向右上指定位置，可以取消技能释放。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-5",
+              "HandleType": 2,
+              "HandleTypeParams": 7000,
+              "AnchorPos": 2,
+              "AudioId": 15121,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 4,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "让我们试着对前方的敌人释放一下技能看看",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "",
+              "HandleType": 0,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 0,
+              "AudioId": 15122,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 5,
+          "AutoToNextId": 6,
+          "ProcessDetail": [
+            {
+              "Desc": "比赛过程中，可以在战斗开始阶段或者英雄死亡之后，替换你当前所使用的英雄和枪械。当屏幕上出现此按钮时可以进行相应的操作。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-6",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15123,
+              "VideoId": 1
+            },
+            {
+              "Desc": "依据敌我队伍的配置以及战场的形势变化，适时进行换人可以达到事半功倍的效果。比如当你的队伍中缺乏【先锋】型角色时，你可以替换先锋英雄【银翼】来冲锋陷阵。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-5",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15124,
+              "VideoId": 1
+            },
+            {
+              "Desc": "英雄选择好之后，继续点击枪械标签页，来选择该英雄使用的枪械。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-1",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 7000,
+              "VideoId": 1
+            },
+            {
+              "Desc": "选择第一把想要使用的枪械。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-6",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 7000,
+              "VideoId": 1
+            },
+            {
+              "Desc": "选择第二把想要使用的枪械，不能选择已经被选取的枪械哦。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-7",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 7000,
+              "VideoId": 1
+            },
+            {
+              "Desc": "当一切就绪后，点击准备按钮就能进行英雄和枪械的替换了。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/TianTi/SelectRoleGunView-4",
+              "HandleType": 2,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15125,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 6,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "前方出现新的敌人，让我们使用下新英雄的技能看看威力如何！",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleUI-7",
+              "HandleType": 9,
+              "HandleTypeParams": 200000,
+              "AnchorPos": 0,
+              "AudioId": 15126,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 7,
+          "AutoToNextId": -1,
+          "IsEventEnd": true,
+          "IsEventSave": true,
+          "IsEndProcess": 1,
+          "ProcessDetail": [
+            {
+              "Desc": "一击秒杀！进阶教学就到这里结束啦。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 500,
+              "AnchorPos": 3,
+              "AudioId": 15127,
+              "VideoId": 1
+            }
+          ]
+        }
+      ],
+      "IsServerStore": false
+    },
+    "2": {
+      "Id": 2,
+      "Desc": "战斗引导3",
+      "OpenLevel": 0,
+      "Priority": 2,
+      "Process": [
+        {
+          "ProcessId": 0,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "现在我们要学习一个特殊的地图玩法模式：占领模式。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15128,
+              "VideoId": 1
+            },
+            {
+              "Desc": "让我们跟随指引走到占点地区",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15129,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 1,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "可以看到画面正上方有一个进度显示，分别表示该区域的控制方与占领进度。当只有我方英雄处于占领区域内时，就可以获得该区域的占领进度。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleCapSiteArenaUI-0",
+              "HandleType": 1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15130,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 2,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "区域内出现了敌人！当有敌方英雄处于占领区域内时，我方占领进度将会停止，占领区域进入争夺状态，只有驱除区域内的所有敌人才能继续获得占领进度。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15131,
+              "VideoId": 1
+            },
+            {
+              "Desc": "让我们快点击败这个讨厌的家伙，继续我们的占点大计。",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "",
+              "HandleType": 0,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 3,
+              "AudioId": 15132,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 3,
+          "AutoToNextId": -1,
+          "ProcessDetail": [
+            {
+              "Desc": "驱除敌人后，中间进度条读满，我们就能获得占领区域的控制权。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "GUI/Prefab_2/Battle/BattleCapSiteArenaUI-1",
+              "HandleType": 1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15133,
+              "VideoId": 1
+            }
+          ]
+        },
+        {
+          "ProcessId": 4,
+          "AutoToNextId": -1,
+          "IsEventEnd": true,
+          "IsEventSave": true,
+          "ProcessDetail": [
+            {
+              "Desc": "当控制进度达到100%时，我们就能获得比赛的胜利，但是小心不要让敌人把占领区域抢过去啦。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15134,
+              "VideoId": 1
+            },
+            {
+              "Desc": "又有讨厌的敌人来阻止我们获胜了。",
+              "Is2D": true,
+              "IsPauseApp": true,
+              "IsNeedStick": true,
+              "Hieraracy": "",
+              "HandleType": -1,
+              "HandleTypeParams": 1000,
+              "AnchorPos": 3,
+              "AudioId": 15135,
+              "VideoId": 1
+            },
+            {
+              "Desc": "只有击败他，我们才能使进度条达到100%获得胜利！！",
+              "Is2D": true,
+              "IsPauseApp": false,
+              "IsNeedStick": true,
+              "IsNoListener": true,
+              "Hieraracy": "",
+              "HandleType": 0,
+              "HandleTypeParams": 100000,
+              "AnchorPos": 3,
+              "AudioId": 15136,
+              "VideoId": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "BattleBasicInitData": {
+    "capacity": 2,
+    "gameType": 2,
+    "id": 98226438048389011,
+    "mapId": "10001",
+    "playerInfoList": [
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 0,
+        "gunList": [
+          {
+            "id": 110011,
+            "proficiency": 32,
+            "skinId": 11001100
+          },
+          {
+            "id": 110004,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 32,
+            "skinId": 10000101
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110011,
+        "initSlaveGunId": 110004,
+        "mvpPostId": 0,
+        "name": "fadfs",
+        "playerId": 666,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      },
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 1,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 32,
+            "skinId": 11000100
+          },
+          {
+            "id": 110000,
+            "proficiency": 0,
+            "skinId": 11000000
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 32,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 0,
+        "initSlaveGunId": 0,
+        "mvpPostId": 0,
+        "name": "机器人0",
+        "playerId": 11984998822065,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      }
+    ],
+    "teamFlag": [
+      "SINGLE",
+      "SINGLE"
+    ],
+    "teamScore": [
+      1520,
+      1520
+    ]
+  },
+  "BattleAdvancedInitData": {
+    "capacity": 2,
+    "gameType": 2,
+    "id": 98226438048389011,
+    "mapId": "10002",
+    "playerInfoList": [
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 0,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000600
+          },
+          {
+            "id": 110000,
+            "proficiency": 0,
+            "skinId": 11000000
+          },
+          {
+            "id": 110004,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "fadfs",
+        "playerId": 666,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      },
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 1,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "机器人1",
+        "playerId": 0,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      },
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 2,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "机器人2",
+        "playerId": 1,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      }
+    ],
+    "teamFlag": [
+      "SINGLE",
+      "SINGLE"
+    ],
+    "teamScore": [
+      1520,
+      1520
+    ]
+  },
+  "BattleMapGuideInitData": {
+    "capacity": 2,
+    "gameType": 2,
+    "id": 98226438048389011,
+    "mapId": "10003",
+    "playerInfoList": [
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 0,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "fadfs",
+        "playerId": 666,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      },
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 1,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "机器人3",
+        "playerId": 1,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      },
+      {
+        "divisionType": 6,
+        "gameServerId": 1001,
+        "gameSessionIndex": 2,
+        "gunList": [
+          {
+            "id": 110001,
+            "proficiency": 0,
+            "skinId": 11000100
+          },
+          {
+            "id": 110006,
+            "proficiency": 0,
+            "skinId": 11000400
+          }
+        ],
+        "heroList": [
+          {
+            "id": 100001,
+            "proficiency": 0,
+            "skinId": 10000100
+          },
+          {
+            "id": 100000,
+            "proficiency": 0,
+            "skinId": 10000000
+          },
+          {
+            "id": 100003,
+            "proficiency": 0,
+            "skinId": 10000300
+          }
+        ],
+        "initHeroId": 0,
+        "initHeroSkinId": 0,
+        "initMainGunId": 110001,
+        "initSlaveGunId": 110006,
+        "mvpPostId": 0,
+        "name": "机器人4",
+        "playerId": 2,
+        "score": 0,
+        "subDivisionType": 603,
+        "vipLevel": 0,
+        "winPostId": 0
+      }
+    ],
+    "teamFlag": [
+      "SINGLE",
+      "SINGLE"
+    ],
+    "teamScore": [
+      1520,
+      1520
+    ]
+  },
+  "Process2Reward": {
+    "0": {
+      "0": 6666
+    },
+    "1": {
+      "1": 666
+    },
+    "2": {
+      "170": 6
+    }
+  }
+}

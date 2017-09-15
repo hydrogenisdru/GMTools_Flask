@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gmCmdPro.proto',
   package='com.firevale.server2server.protocol',
-  serialized_pb=_b('\n\x0egmCmdPro.proto\x12#com.firevale.server2server.protocol\"\x19\n\x0bGmOnlineNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x13\n\x11PullSystemMailNtf\"!\n\rKickPlayerNtf\x12\x10\n\x08playerId\x18\x01 \x02(\x05\"\x1d\n\x0bGmNoticeNtf\x12\x0e\n\x06notice\x18\x01 \x01(\t\"\x15\n\x13PullAnnouncementNtf\"#\n\x15PullActivityConfigNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x10\n\x0eUpdatePatchNtf')
+  serialized_pb=_b('\n\x0egmCmdPro.proto\x12#com.firevale.server2server.protocol\"\x19\n\x0bGmOnlineNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x13\n\x11PullSystemMailNtf\"!\n\rKickPlayerNtf\x12\x10\n\x08playerId\x18\x01 \x02(\x05\"\x1d\n\x0bGmNoticeNtf\x12\x0e\n\x06notice\x18\x01 \x01(\t\"\x15\n\x13PullAnnouncementNtf\"#\n\x15PullActivityConfigNtf\x12\n\n\x02id\x18\x01 \x02(\x05\"\x10\n\x0eUpdatePatchNtf\")\n\x13UpdateGameConfigNtf\x12\x12\n\nconfigName\x18\x01 \x03(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -213,6 +213,36 @@ _UPDATEPATCHNTF = _descriptor.Descriptor(
   serialized_end=245,
 )
 
+
+_UPDATEGAMECONFIGNTF = _descriptor.Descriptor(
+  name='UpdateGameConfigNtf',
+  full_name='com.firevale.server2server.protocol.UpdateGameConfigNtf',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='configName', full_name='com.firevale.server2server.protocol.UpdateGameConfigNtf.configName', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=247,
+  serialized_end=288,
+)
+
 DESCRIPTOR.message_types_by_name['GmOnlineNtf'] = _GMONLINENTF
 DESCRIPTOR.message_types_by_name['PullSystemMailNtf'] = _PULLSYSTEMMAILNTF
 DESCRIPTOR.message_types_by_name['KickPlayerNtf'] = _KICKPLAYERNTF
@@ -220,6 +250,7 @@ DESCRIPTOR.message_types_by_name['GmNoticeNtf'] = _GMNOTICENTF
 DESCRIPTOR.message_types_by_name['PullAnnouncementNtf'] = _PULLANNOUNCEMENTNTF
 DESCRIPTOR.message_types_by_name['PullActivityConfigNtf'] = _PULLACTIVITYCONFIGNTF
 DESCRIPTOR.message_types_by_name['UpdatePatchNtf'] = _UPDATEPATCHNTF
+DESCRIPTOR.message_types_by_name['UpdateGameConfigNtf'] = _UPDATEGAMECONFIGNTF
 
 GmOnlineNtf = _reflection.GeneratedProtocolMessageType('GmOnlineNtf', (_message.Message,), dict(
   DESCRIPTOR = _GMONLINENTF,
@@ -269,6 +300,13 @@ UpdatePatchNtf = _reflection.GeneratedProtocolMessageType('UpdatePatchNtf', (_me
   # @@protoc_insertion_point(class_scope:com.firevale.server2server.protocol.UpdatePatchNtf)
   ))
 _sym_db.RegisterMessage(UpdatePatchNtf)
+
+UpdateGameConfigNtf = _reflection.GeneratedProtocolMessageType('UpdateGameConfigNtf', (_message.Message,), dict(
+  DESCRIPTOR = _UPDATEGAMECONFIGNTF,
+  __module__ = 'gmCmdPro_pb2'
+  # @@protoc_insertion_point(class_scope:com.firevale.server2server.protocol.UpdateGameConfigNtf)
+  ))
+_sym_db.RegisterMessage(UpdateGameConfigNtf)
 
 
 # @@protoc_insertion_point(module_scope)

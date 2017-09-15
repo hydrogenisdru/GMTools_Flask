@@ -1,0 +1,2164 @@
+{
+  "Hero": {
+    "100000": {
+      "MallDataId": 100000,
+      "ItemId": 100000,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": false,
+      "WhereToGet": "XXX获得"
+    },
+    "100001": {
+      "MallDataId": 100001,
+      "ItemId": 100001,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100002": {
+      "MallDataId": 100002,
+      "ItemId": 100002,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100003": {
+      "MallDataId": 100003,
+      "ItemId": 100003,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100004": {
+      "MallDataId": 100004,
+      "ItemId": 100004,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100006": {
+      "MallDataId": 100006,
+      "ItemId": 100006,
+      "Count": 1,
+      "SalePrice": {
+        "0": 10888,
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100007": {
+      "MallDataId": 100007,
+      "ItemId": 100007,
+      "Count": 1,
+      "SalePrice": {
+        "0": 10888,
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    }
+  },
+  "HeroSkin": {
+    "10000001": {
+      "MallDataId": 10000001,
+      "ItemId": 10000001,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1388
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {
+        "0": {
+          "SalePrice": 80,
+          "discount": 8
+        }
+      },
+      "DiscountTimeSpan": [
+        "2017-05-26",
+        "2017-05-29"
+      ]
+    },
+    "10000002": {
+      "MallDataId": 10000002,
+      "ItemId": 10000002,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {
+        "0": {
+          "SalePrice": 80,
+          "discount": 8
+        }
+      },
+      "DiscountTimeSpan": [
+        "2017-05-26",
+        "2017-05-29"
+      ]
+    },
+    "10000101": {
+      "MallDataId": 10000101,
+      "ItemId": 10000101,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1288
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "10000102": {
+      "MallDataId": 10000102,
+      "ItemId": 10000102,
+      "Count": 1,
+      "SalePrice": {
+        "2": 388
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000201": {
+      "MallDataId": 10000201,
+      "ItemId": 10000201,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000202": {
+      "MallDataId": 10000202,
+      "ItemId": 10000202,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000301": {
+      "MallDataId": 10000301,
+      "ItemId": 10000301,
+      "Count": 1,
+      "SalePrice": {
+        "2": 2688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "10000302": {
+      "MallDataId": 10000302,
+      "ItemId": 10000302,
+      "Count": 1,
+      "SalePrice": {
+        "2": 788
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000401": {
+      "MallDataId": 10000401,
+      "ItemId": 10000401,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "10000402": {
+      "MallDataId": 10000402,
+      "ItemId": 10000402,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000601": {
+      "MallDataId": 10000601,
+      "ItemId": 10000601,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1388
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000602": {
+      "MallDataId": 10000602,
+      "ItemId": 10000602,
+      "Count": 1,
+      "SalePrice": {
+        "2": 388
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000701": {
+      "MallDataId": 10000701,
+      "ItemId": 10000701,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "10000702": {
+      "MallDataId": 10000702,
+      "ItemId": 10000702,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1888
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+	  "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    }
+  },
+  "Gun": {
+    "110000": {
+      "MallDataId": 110000,
+      "ItemId": 110000,
+      "Count": 1,
+      "SalePrice": {
+        "0": 8888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110001": {
+      "MallDataId": 110001,
+      "ItemId": 110001,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110002": {
+      "MallDataId": 110002,
+      "ItemId": 110002,
+      "Count": 1,
+      "SalePrice": {
+        "0": 8888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110003": {
+      "MallDataId": 110003,
+      "ItemId": 110003,
+      "Count": 1,
+      "SalePrice": {
+        "0": 10888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110004": {
+      "MallDataId": 110004,
+      "ItemId": 110004,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110006": {
+      "MallDataId": 110006,
+      "ItemId": 110006,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110007": {
+      "MallDataId": 110007,
+      "ItemId": 110007,
+      "Count": 1,
+      "SalePrice": {
+        "0": 10888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110008": {
+      "MallDataId": 110008,
+      "ItemId": 110008,
+      "Count": 1,
+      "SalePrice": {
+        "0": 8888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110009": {
+      "MallDataId": 110009,
+      "ItemId": 110009,
+      "Count": 1,
+      "SalePrice": {
+        "0": 10888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "首充礼包"
+    },
+    "110010": {
+      "MallDataId": 110010,
+      "ItemId": 110010,
+      "Count": 1,
+      "SalePrice": {
+        "0": 6888,
+        "1": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110011": {
+      "MallDataId": 110011,
+      "ItemId": 110011,
+      "Count": 1,
+      "SalePrice": {
+        "0": 12888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110012": {
+      "MallDataId": 110012,
+      "ItemId": 110012,
+      "Count": 1,
+      "SalePrice": {
+        "0": 12888,
+        "2": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110013": {
+      "MallDataId": 110013,
+      "ItemId": 110013,
+      "Count": 1,
+      "SalePrice": {
+        "0": 12888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110014": {
+      "MallDataId": 110014,
+      "ItemId": 110014,
+      "Count": 1,
+      "SalePrice": {
+        "0": 12888,
+        "1": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110015": {
+      "MallDataId": 110015,
+      "ItemId": 110015,
+      "Count": 1,
+      "SalePrice": {
+        "0": 12888,
+        "2": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    }
+  },
+  "GunSkin": {
+    "11000001": {
+      "MallDataId": 11000001,
+      "ItemId": 11000001,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000002": {
+      "MallDataId": 11000002,
+      "ItemId": 11000002,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000003": {
+      "MallDataId": 11000003,
+      "ItemId": 11000003,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1888
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000101": {
+      "MallDataId": 11000101,
+      "ItemId": 11000101,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000102": {
+      "MallDataId": 11000102,
+      "ItemId": 11000102,
+      "Count": 1,
+      "SalePrice": {
+        "2": 988
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000201": {
+      "MallDataId": 11000201,
+      "ItemId": 11000201,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000202": {
+      "MallDataId": 11000202,
+      "ItemId": 11000202,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000301": {
+      "MallDataId": 11000301,
+      "ItemId": 11000301,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000302": {
+      "MallDataId": 11000302,
+      "ItemId": 11000302,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000303": {
+      "MallDataId": 11000303,
+      "ItemId": 11000303,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000401": {
+      "MallDataId": 11000401,
+      "ItemId": 11000401,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000402": {
+      "MallDataId": 11000402,
+      "ItemId": 11000402,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000403": {
+      "MallDataId": 11000403,
+      "ItemId": 11000403,
+      "Count": 1,
+      "SalePrice": {
+        "2": 2088
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000601": {
+      "MallDataId": 11000601,
+      "ItemId": 11000601,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000602": {
+      "MallDataId": 11000602,
+      "ItemId": 11000602,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1188
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000701": {
+      "MallDataId": 11000701,
+      "ItemId": 11000701,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000702": {
+      "MallDataId": 11000702,
+      "ItemId": 11000702,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11000801": {
+      "MallDataId": 11000801,
+      "ItemId": 11000801,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000802": {
+      "MallDataId": 11000802,
+      "ItemId": 11000802,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1288
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000901": {
+      "MallDataId": 11000901,
+      "ItemId": 11000901,
+      "Count": 1,
+      "SalePrice": {
+        "2": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11000902": {
+      "MallDataId": 11000902,
+      "ItemId": 11000902,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11001001": {
+      "MallDataId": 11001001,
+      "ItemId": 11001001,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11001002": {
+      "MallDataId": 11001002,
+      "ItemId": 11001002,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1288
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11001101": {
+      "MallDataId": 11001101,
+      "ItemId": 11001101,
+      "Count": 1,
+      "SalePrice": {
+        "2": 488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11001102": {
+      "MallDataId": 11001102,
+      "ItemId": 11001102,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1088
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11001201": {
+      "MallDataId": 11001201,
+      "ItemId": 11001201,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1388
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11001301": {
+      "MallDataId": 11001301,
+      "ItemId": 11001301,
+      "Count": 1,
+      "SalePrice": {
+        "2": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "第一赛季奖励"
+    },
+    "11001302": {
+      "MallDataId": 11001302,
+      "ItemId": 11001302,
+      "Count": 1,
+      "SalePrice": {
+        "2": 2488
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11001401": {
+      "MallDataId": 11001401,
+      "ItemId": 11001401,
+      "Count": 1,
+      "SalePrice": {
+        "2": 588
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    },
+    "11001402": {
+      "MallDataId": 11001402,
+      "ItemId": 11001402,
+      "Count": 1,
+      "SalePrice": {
+        "2": 1188
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11001501": {
+      "MallDataId": 11001501,
+      "ItemId": 11001501,
+      "Count": 1,
+      "SalePrice": {
+        "2": 688
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "11001502": {
+      "MallDataId": 11001502,
+      "ItemId": 11001502,
+      "Count": 1,
+      "SalePrice": {
+        "2": 2888
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": [],
+      "NotSellInShop": true,
+      "WhereToGet": "补给抽取"
+    }
+  },
+  "SoulChip": {
+    "172": {
+      "MallDataId": 172,
+      "ItemId": 172,
+      "Count": 1,
+      "SalePrice": {
+        "2": 20
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "173": {
+      "MallDataId": 173,
+      "ItemId": 173,
+      "Count": 1,
+      "SalePrice": {
+        "2": 90
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100000010": {
+      "MallDataId": 100000010,
+      "ItemId": 10000001,
+      "Count": 1,
+      "SalePrice": {
+        "3": 138
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100000020": {
+      "MallDataId": 100000020,
+      "ItemId": 10000002,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100001010": {
+      "MallDataId": 100001010,
+      "ItemId": 10000101,
+      "Count": 1,
+      "SalePrice": {
+        "3": 128
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100001020": {
+      "MallDataId": 100001020,
+      "ItemId": 10000102,
+      "Count": 1,
+      "SalePrice": {
+        "3": 38
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100002010": {
+      "MallDataId": 100002010,
+      "ItemId": 10000201,
+      "Count": 1,
+      "SalePrice": {
+        "3": 168
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100002020": {
+      "MallDataId": 100002020,
+      "ItemId": 10000202,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100003010": {
+      "MallDataId": 100003010,
+      "ItemId": 10000301,
+      "Count": 1,
+      "SalePrice": {
+        "3": 268
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100003020": {
+      "MallDataId": 100003020,
+      "ItemId": 10000302,
+      "Count": 1,
+      "SalePrice": {
+        "3": 78
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100004010": {
+      "MallDataId": 100004010,
+      "ItemId": 10000401,
+      "Count": 1,
+      "SalePrice": {
+        "3": 158
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100004020": {
+      "MallDataId": 100004020,
+      "ItemId": 10000402,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100006010": {
+      "MallDataId": 100006010,
+      "ItemId": 10000601,
+      "Count": 1,
+      "SalePrice": {
+        "3": 138
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100006020": {
+      "MallDataId": 100006020,
+      "ItemId": 10000602,
+      "Count": 1,
+      "SalePrice": {
+        "3": 38
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110000010": {
+      "MallDataId": 110000010,
+      "ItemId": 11000001,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110000020": {
+      "MallDataId": 110000020,
+      "ItemId": 11000002,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110000030": {
+      "MallDataId": 110000030,
+      "ItemId": 11000003,
+      "Count": 1,
+      "SalePrice": {
+        "3": 188
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110001010": {
+      "MallDataId": 110001010,
+      "ItemId": 11000101,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110001020": {
+      "MallDataId": 110001020,
+      "ItemId": 11000102,
+      "Count": 1,
+      "SalePrice": {
+        "3": 98
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110002010": {
+      "MallDataId": 110002010,
+      "ItemId": 11000201,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110002020": {
+      "MallDataId": 110002020,
+      "ItemId": 11000202,
+      "Count": 1,
+      "SalePrice": {
+        "3": 148
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110003010": {
+      "MallDataId": 110003010,
+      "ItemId": 11000301,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110003020": {
+      "MallDataId": 110003020,
+      "ItemId": 11000302,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110003030": {
+      "MallDataId": 110003030,
+      "ItemId": 11000303,
+      "Count": 1,
+      "SalePrice": {
+        "3": 168
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110004010": {
+      "MallDataId": 110004010,
+      "ItemId": 11000401,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110004020": {
+      "MallDataId": 110004020,
+      "ItemId": 11000402,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110004030": {
+      "MallDataId": 110004030,
+      "ItemId": 11000403,
+      "Count": 1,
+      "SalePrice": {
+        "3": 208
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110006010": {
+      "MallDataId": 110006010,
+      "ItemId": 11000601,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110006020": {
+      "MallDataId": 110006020,
+      "ItemId": 11000602,
+      "Count": 1,
+      "SalePrice": {
+        "3": 118
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110007010": {
+      "MallDataId": 110007010,
+      "ItemId": 11000701,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110007020": {
+      "MallDataId": 110007020,
+      "ItemId": 11000702,
+      "Count": 1,
+      "SalePrice": {
+        "3": 148
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110008010": {
+      "MallDataId": 110008010,
+      "ItemId": 11000801,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110009010": {
+      "MallDataId": 110009010,
+      "ItemId": 11000901,
+      "Count": 1,
+      "SalePrice": {
+        "3": 68
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110009020": {
+      "MallDataId": 110009020,
+      "ItemId": 11000902,
+      "Count": 1,
+      "SalePrice": {
+        "3": 158
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110010010": {
+      "MallDataId": 110010010,
+      "ItemId": 11001001,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110010020": {
+      "MallDataId": 110010020,
+      "ItemId": 11001002,
+      "Count": 1,
+      "SalePrice": {
+        "3": 128
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110011010": {
+      "MallDataId": 110011010,
+      "ItemId": 11001101,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110011020": {
+      "MallDataId": 110011020,
+      "ItemId": 11001102,
+      "Count": 1,
+      "SalePrice": {
+        "3": 108
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110012010": {
+      "MallDataId": 110012010,
+      "ItemId": 11001201,
+      "Count": 1,
+      "SalePrice": {
+        "3": 138
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110013020": {
+      "MallDataId": 110013020,
+      "ItemId": 11001302,
+      "Count": 1,
+      "SalePrice": {
+        "3": 248
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110014010": {
+      "MallDataId": 110014010,
+      "ItemId": 11001401,
+      "Count": 1,
+      "SalePrice": {
+        "3": 58
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110014020": {
+      "MallDataId": 110014020,
+      "ItemId": 11001402,
+      "Count": 1,
+      "SalePrice": {
+        "3": 118
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110015010": {
+      "MallDataId": 110015010,
+      "ItemId": 11001501,
+      "Count": 1,
+      "SalePrice": {
+        "3": 68
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "110015020": {
+      "MallDataId": 110015020,
+      "ItemId": 11001502,
+      "Count": 1,
+      "SalePrice": {
+        "3": 288
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100007010": {
+      "MallDataId": 100007010,
+      "ItemId": 10000701,
+      "Count": 1,
+      "SalePrice": {
+        "3": 48
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    },
+    "100007020": {
+      "MallDataId": 100007020,
+      "ItemId": 10000702,
+      "Count": 1,
+      "SalePrice": {
+        "3": 188
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    }
+  },
+  "Item": {
+    "171": {
+      "MallDataId": 171,
+      "ItemId": 171,
+      "Count": 1,
+      "SalePrice": {
+        "2": 100
+      },
+      "LimitBuy": {
+        "type": 0,
+        "limit": 0
+      },
+      "TimeLimit": {
+        "isLimit": false,
+        "timeSpan": []
+      },
+      "Discount": {},
+      "DiscountTimeSpan": []
+    }
+  }
+}

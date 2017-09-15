@@ -35,8 +35,8 @@
             <tbody>
             {% for player in playerlist %}
                 <tr>
-                    <th>{{ player.userDesc|e }}</th>
-                    <th>{{ player.uuid|e }}</th>
+                    <th>{{ player.nick|e }}</th>
+                    <th>{{ player.playerId|e }}</th>
                     {% if player.suspensionExpiredDate %}
                         <th>{{ player.suspensionExpiredDate|e }}</th>
                     {% else %}

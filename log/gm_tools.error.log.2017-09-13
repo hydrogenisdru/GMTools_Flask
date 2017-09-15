@@ -1,0 +1,17 @@
+Exception on /gm/test/get_list_folder [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 380, in test_get_list_folder
+    list_folder = cdn_updater.get_list_folder()
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/cdnUpdater.py", line 68, in get_list_folder
+    folders, files = self.walk_all_folders()
+ValueError: too many values to unpack

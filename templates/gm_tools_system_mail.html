@@ -74,6 +74,7 @@
         var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
     </script>
     <script src="{{ url_for('.static', filename='dropdown.js') }}"></script>
+    <script src="{{ url_for('.static', filename='inspector.js') }}"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script>
         var editor = new JSONEditor(document.getElementById('editor_holder'), {
@@ -192,6 +193,12 @@
                         }
                     }
                     else {
+                        if(!isHero(n) && !isHeroSkin(n) && !isItem(n) && !isGun(n) && !isGunSkin(n)
+                                && isCurrency(n) && isMonsterGunSkin(n)) {
+                            var alert_text = '物品代码' + n + '是非法的id!'
+                            alert(alert_text);
+                            return false;
+                        }
                         if (o[n] != null && o[n] > 10) {
                             var alert_text = '物品代码' + n + '超过限制数量10!'
                             alert(alert_text);

@@ -22,4 +22,9 @@
     {{ super() }}
     <script src="{{ url_for('.static', filename='bootstrap-markdown/js/bootstrap-markdown.js') }}"></script>
     <script src="{{ url_for('.static', filename='bootstrap-markdown/locale/bootstrap-markdown.zh.js') }}"></script>
+    <script type="text/javascript">
+        function upload_file() {
+            alert('upload file!');
+        }
+    </script>
 {% endblock %}

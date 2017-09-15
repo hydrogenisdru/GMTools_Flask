@@ -1,0 +1,90 @@
+{
+  "Id2Desc": {
+    "com.shanghai.biubiubiu2.goods.1credit": {
+      "Diamond": 10,
+      "Icon": "Ticket_1",
+      "Id": "com.shanghai.biubiubiu2.goods.1credit",
+      "Price": 1,
+      "Key": 1,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1"
+    },
+    "com.shanghai.biubiubiu2.goods.6credit": {
+      "Diamond": 60,
+      "Icon": "Ticket_2",
+      "Id": "com.shanghai.biubiubiu2.goods.6credit",
+      "Price": 6,
+      "Key": 2,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1"
+    },
+    "com.shanghai.biubiubiu2.goods.45credit": {
+      "Diamond": 450,
+      "Icon": "Ticket_3",
+      "Id": "com.shanghai.biubiubiu2.goods.45credit",
+      "Price": 45,
+      "Key": 3,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 25
+    },
+    "com.shanghai.biubiubiu2.goods.68credit": {
+      "Diamond": 680,
+      "Icon": "Ticket_4",
+      "Id": "com.shanghai.biubiubiu2.goods.68credit",
+      "Price": 68,
+      "Key": 4,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 35
+    },
+    "com.shanghai.biubiubiu2.goods.118credit": {
+      "Diamond": 1180,
+      "Icon": "Ticket_5",
+      "Id": "com.shanghai.biubiubiu2.goods.118credit",
+      "Price": 118,
+      "Key": 5,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 60
+    },
+    "com.shanghai.biubiubiu2.goods.198credit": {
+      "Diamond": 1980,
+      "Icon": "Ticket_6",
+      "Id": "com.shanghai.biubiubiu2.goods.198credit",
+      "Price": 198,
+      "Key": 6,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 120
+    },
+    "com.shanghai.biubiubiu2.goods.348credit": {
+      "Diamond": 3480,
+      "Icon": "Ticket_7",
+      "Id": "com.shanghai.biubiubiu2.goods.348credit",
+      "Price": 348,
+      "Key": 7,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 210
+    },
+    "com.shanghai.biubiubiu2.goods.648credit": {
+      "Diamond": 6480,
+      "Icon": "Ticket_8",
+      "Id": "com.shanghai.biubiubiu2.goods.648credit",
+      "Price": 648,
+      "Key": 8,
+	    "Name":"10钻石",
+      "Desc":"1元购买10钻石",
+      "BundleID": "com.shanghai.biubiubiu2.cn1",
+      "GiftCount": 388
+    }
+  }
+}
