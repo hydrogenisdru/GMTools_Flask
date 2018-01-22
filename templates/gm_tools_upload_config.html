@@ -100,7 +100,11 @@
                 previewFileIcon: '<i class="fa fa-file"></i>',
                 initialPreview: [],
                 initialPreviewAsData: true, // defaults markup
-                initialPreviewConfig: [],
+                uploadExtraData: function () {
+                    return {
+                        message: 'hello'
+                    }
+                },
                 preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
                 previewFileIconSettings: { // configure your icon file extensions
                     'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
@@ -112,23 +116,19 @@
                 }
             });
         });
-{#        $("#input-file").on('fileuploaded', function (event, data, previewId, index) {#}
+        {#        $("#input-file").on('fileuploaded', function (event, data, previewId, index) {#}
+        {#            var form = data.form, files = data.files, extra = data.extra,#}
+        {#                    response = data.response, reader = data.reader;#}
+        {#            if (response != null && response['code'] != 0) {#}
+        {#                var resp = '[' + response['filename'] + ']' + ' uploaded response: ' + ' return code: ' + response['code']#}
+        {#                        + ',message: ' + response['message'];#}
+        {#                alert(resp);#}
+        {#            }#}
+        {#        });#}
+{#        $("#input-cdn-file").on('filepreupload', function (event, data, previewId, index) {#}
 {#            var form = data.form, files = data.files, extra = data.extra,#}
 {#                    response = data.response, reader = data.reader;#}
-{#            if (response != null && response['code'] != 0) {#}
-{#                var resp = '[' + response['filename'] + ']' + ' uploaded response: ' + ' return code: ' + response['code']#}
-{#                        + ',message: ' + response['message'];#}
-{#                alert(resp);#}
-{#            }#}
-{#        });#}
-{#        $("#input-cdn-file").on('fileuploaded', function (event, data, previewId, index) {#}
-{#            var form = data.form, files = data.files, extra = data.extra,#}
-{#                    response = data.response, reader = data.reader;#}
-{#            if (response != null && files != null) {#}
-{#                var resp = '[' + files[0]['name'] + ']' + ' uploaded response: ' + ' return code: ' + response['code']#}
-{#                        + ',message: ' + response['message'];#}
-{#                alert(resp);#}
-{#            }#}
+{#            extra = {'message': 'hello'};#}
 {#        });#}
     </script>
 {% endblock %}

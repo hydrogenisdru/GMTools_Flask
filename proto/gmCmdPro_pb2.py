@@ -34,7 +34,7 @@ _GMONLINENTF = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='com.firevale.server2server.protocol.GmOnlineNtf.id', index=0,
-      number=1, type=5, cpp_type=1, label=2,
+      number=1, type=3, cpp_type=2, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -87,7 +87,7 @@ _KICKPLAYERNTF = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='playerId', full_name='com.firevale.server2server.protocol.KickPlayerNtf.playerId', index=0,
-      number=1, type=5, cpp_type=1, label=2,
+      number=1, type=3, cpp_type=2, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

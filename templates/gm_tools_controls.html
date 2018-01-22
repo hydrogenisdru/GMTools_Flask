@@ -27,7 +27,7 @@
             <tr>
                 <th>Name</th>
                 <th>Uuid</th>
-                <th>SuspensionExpiredDate</th>
+{#                <th>SuspensionExpiredDate</th>#}
                 <th>Manage</th>
                 <th>Kick</th>
             </tr>
@@ -37,18 +37,18 @@
                 <tr>
                     <th>{{ player.nick|e }}</th>
                     <th>{{ player.playerId|e }}</th>
-                    {% if player.suspensionExpiredDate %}
-                        <th>{{ player.suspensionExpiredDate|e }}</th>
-                    {% else %}
-                        <th>None</th>
-                    {% endif %}
+{#                    {% if player.suspensionExpiredDate %}#}
+{#                        <th>{{ player.suspensionExpiredDate|e }}</th>#}
+{#                    {% else %}#}
+{#                        <th>None</th>#}
+{#                    {% endif %}#}
                     <th>
-                        <button type="button" class="btn btn-primary" onclick="openProfile('{{ player.uuid|e }}')">
+                        <button type="button" class="btn btn-primary" onclick="openProfile('{{ player.playerId|e }}')">
                             Edit
                         </button>
                     </th>
                     <th>
-                        <button type="button" class="btn btn-primary" onclick="kick('{{ player.uuid|e }}')">
+                        <button type="button" class="btn btn-primary" onclick="kick('{{ player.playerId|e }}')">
                             Kick
                         </button>
                     </th>
@@ -57,18 +57,6 @@
             </tbody>
         </table>
         {{ pagination.links }}
-    </div>
-    <div class="row placeholders">
-        <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="avtive">
-                <a href="#" class="dropdown-toggle" id="drop1" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Dropdown<span class="caret"></span></a>
-                <ul id="menu1" class="dropdown-menu" aria-labelledby="drop1">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                </ul>
-            </li>
-        </ul>
     </div>
 {% endblock %}
 {% block scripts %}

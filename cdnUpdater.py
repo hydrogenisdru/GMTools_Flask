@@ -7,7 +7,7 @@ import demjson
 import binascii, base64
 import hmac
 import random
-import sys
+import sys, re
 
 
 class CdnUpdater:
@@ -36,7 +36,7 @@ class CdnUpdater:
 
     def set_update_file_path(self, folder_name, file_name):
         key = file_name.split('.')[0]
-        self.update_file_path[key] = '/' + folder_name + '/' + file_name
+        self.update_file_path[key] = folder_name + file_name
         self.refresh_url[key] = self.BASE_REFRESH_URL + self.update_file_path[key]
 
     def check_file(self, file_name):
@@ -57,6 +57,14 @@ class CdnUpdater:
         else:
             return 'no this file'
 
+    def get_file(self, cos_path, file_name):
+        url = self.BASE_REFRESH_URL + cos_path + file_name
+        resp = requests.get(url)
+        if resp.status_code == 200:
+            return resp.text
+        else:
+            return 'bad request response'
+
     def get_default_file(self):
         resp = requests.get(self.REFRESH_URL)
         if resp.status_code == 200:
@@ -64,12 +72,17 @@ class CdnUpdater:
         else:
             return 'bad request response'
 
-    def get_list_folder(self):
-        files = self.walk_all_folders()
-        # lq = ListFolderRequest(bucket_name=self.BUCKET, cos_path=u'/ClientAssets/')
-        # list_folder_ret = self.cos_client.list_folder(lq)
-        # if list_folder_ret['code'] == 0:
-        #     return list_folder_ret['data']
+    def get_list_config_folder(self, cos_path=u'/ClientAssets/'):
+        lq = ListFolderRequest(bucket_name=self.BUCKET, cos_path=cos_path)
+        list_folder_ret = self.cos_client.list_folder(lq)
+        if list_folder_ret['code'] == 0 and list_folder_ret['data'] and list_folder_ret['data']['infos']:
+            config_folders = dict()
+            for data in list_folder_ret['data']['infos']:
+                if data['name'].split('.').__len__() == 1 and re.search(r'Config', data['name'], re.I):
+                    config_folders[data['name'].split('/')[0]] = cos_path + data['name']
+            return config_folders
+        else:
+            return None
 
     def walk_all_folders(self, walking_folders=[u"/ClientAssets/"], files_in_folder=dict()):
         try:
@@ -166,6 +179,25 @@ class CdnUpdater:
             'Timestamp': int(time.time()),
             'Nonce': random.randint(1, sys.maxint),
             'urls.0': url
+        }
+        sign = self.cdn_sign_make(params=params)
+        params['Signature'] = sign
+        url = 'https://%s%s' % (self.CDN_HOST, self.CDN_URI)
+        refresh_resp = requests.get(url, params=params, verify=False)
+        if refresh_resp.status_code == 200:
+            result = demjson.decode(refresh_resp.text)
+            if result['code'] == 0:
+                return True
+        return False
+
+    def refresh_cdn_url_relative(self, url):
+        full_path = self.BASE_REFRESH_URL + url
+        params = {
+            'Action': 'RefreshCdnUrl',
+            'SecretId': self.SECRET_ID,
+            'Timestamp': int(time.time()),
+            'Nonce': random.randint(1, sys.maxint),
+            'urls.0': full_path
         }
         sign = self.cdn_sign_make(params=params)
         params['Signature'] = sign

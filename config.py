@@ -12,15 +12,17 @@ class Config:
     DEFAULT_AUTH = 'admin'
     MQ_IP_ADDRESS = 'localhost'
     MONGO_URI = 'mongodb://123.59.71.187:27027/fire2'
-    MONGO2_URI = 'mongodb://123.59.71.187:27027/analysis'
-    REDIS_URL = 'redis://:@123.59.71.187:6779/14'
+    MONGO2_URI = 'mongodb://120.92.133.11:27077/analysis'
+    REDIS_URL = 'redis://:@120.92.216.136:6770/0'
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost:3306/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PAGE_SIZE = 10
-    UPLOAD_FOLDER = '/Users/zouyang/Desktop/redis_data'
+    MAIN_SERVER_CONFIG_FOLDER = '/Users/zouyang/Desktop/redis_data'
     DEPLOY_CONFIG_FOLDER = '/Users/zouyang/Desktop/redis_data'
     DEPLOY_SHELL_SCRIPT = 'config_update.sh'
+    UPLOAD_FOLDER = '/Users/zouyang/Desktop/redis_data'
     UNZIP_FOLER_FIX = 'unzip_folder'
+    BASE_CDN_FOLDER = '/ClientAssets'
 
     JOBS = [
         {

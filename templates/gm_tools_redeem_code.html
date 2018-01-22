@@ -1,0 +1,129 @@
+{% set active_page = 'gm_tools' %}
+{% set active_side_nav_bar = ' redeem code' %}
+{% extends 'gm_tools_layout.html' %}
+{% block styles %}
+    {{ super() }}
+{% endblock %}
+{% block head %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='jsoneditor.js') }}"></script>
+    <link href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ url_for('.static', filename='bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
+          rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+    <script>
+        JSONEditor.defaults.theme = 'bootstrap3';
+    </script>
+{% endblock %}
+{% block main_content %}
+    {% block flash_message %}
+        {{ super() }}
+    {% endblock %}
+    <!-- tab标签 -->
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#gen_cdkey" data-toggle="tab">Gen CD Keys</a></li>
+        <li><a href="#check_cdkey" data-toggle="tab">Check CD Keys</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane {% if "home" == active_pane %}active{% endif %}" id="gen_cdkey">
+            <div class="table-responsive">
+                <br/>
+                <button id='submit' class="btn btn-primary">gen cdkeys
+                    {#                    <br/>#}
+                    {#                    <span id='valid_indicator'></span>#}
+                </button>
+                <br/>
+                <h2></h2>
+                <div id='editor_holder'></div>
+            </div><!--/table-resp-->
+        </div><!--/tab-pane-->
+        <div class="tab-pane {% if "check" == active_pane %}active{% endif %}" id="check_cdkey">
+            <br/>
+            <p>
+                <button type="button" class="btn btn-primary" onclick="check_cdkey()">
+                    check cd keys!
+                </button>
+            </p>
+            <br/>
+            <h2 class="sub-header"></h2>
+            <table class="table table-striped table-hover table-responsive" id="dataTable2" cellspacing="0"
+                   width="100%">
+                <thead>
+                <tr>
+                    <th hidden="hidden">id</th>
+                    <th>code_name</th>
+                    <th>ccode</th>
+                    <th>remain</th>
+                    <th>used_datetime</th>
+                    <th>gen_datetime</th>
+                    <th>isused</th>
+                    <th>user_id</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div><!--/tab-pane-->
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+    </script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url_for('.static', filename='bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ url_for('.static', filename='bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js') }}"></script>
+    <script>
+        function check_cdkey() {
+
+        }
+        var editor = new JSONEditor(document.getElementById('editor_holder'), {
+            schema: {
+                type: "object",
+                title: "gen cdkeys",
+                properties: {
+                    gifid: {
+                        type: "string",
+                        title: "礼包物品码"
+                    },
+                    pname: {
+                        type: "string",
+                        title: "礼包名字",
+                    },
+                    knum: {
+                        type: "integer",
+                        title: "生成礼包数量"
+                    }
+                }
+            }
+        });
+        // Hook up the submit button to log to the console
+        document.getElementById('submit').addEventListener('click', function () {
+            markdown.value = JSON.stringify(json, null, 2);
+        });
+
+        $(document).ready(function () {
+            $('#dataTable2').DataTable({
+                columnDefs: [
+                    {
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    }
+                ],
+                columns: [
+                    {data: 'id'},
+                    {data: 'code_name'},
+                    {data: 'ccode'},
+                    {data: 'remain'},
+                    {data: 'used_datetime'},
+                    {data: 'gen_datetime'},
+                    {data: 'isused'},
+                    {data: 'user_id'}
+                ]
+            });
+        });
+    </script>
+{% endblock %}
+
+

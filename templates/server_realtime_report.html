@@ -1,0 +1,187 @@
+{% set active_page = 'server_console' %}
+{% set active_side_nav_bar = 'realtime_report' %}
+{% extends 'server_layout.html' %}
+{% block main_content %}
+    <div id="main" style="width: 800px;height:600px;"></div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+    </script>
+    <script src="{{ url_for('.static', filename='echarts.common.min.js') }}"></script>
+    <script type="text/javascript">
+        {#        var contents = {#}
+        {#            'ten_minutes_create': 0,#}
+        {#            'today_create': 1,#}
+        {#            'ten_minutes_active': 2,#}
+        {#            'today_active': 3,#}
+        {#            'today_new_pay': 4,#}
+        {#            'today_income': 5#}
+        {#        };#}
+        var contents = {
+            'today_matches_finished': 0,
+            'today_ranking_matches_finished': 1,
+            'today_create': 2,
+            'today_active': 3,
+            'today_new_pay': 4,
+            'today_old_pay': 5,
+            'today_income_from_new_player': 6,
+            'today_income_from_old_player': 7
+        };
+        $(document).ready(function () {
+            var myChart = echarts.init(document.getElementById('main'));
+            myChart.showLoading();
+            var return_val = "";
+            $.ajax({
+                type: 'post',
+                url: $SCRIPT_ROOT + '/gm/server/get_history_data',
+                async: false,
+                success: function (json) {
+                    return_val = eval('(' + json + ')');
+                    myChart.hideLoading();
+                },
+                error: function () {
+
+                }
+            });
+            var option = Option();
+            for (var key in contents) {
+                var s = Series()
+                s.type = 'line';
+                s.name = key;
+                s.data = [];
+                option.series.push(s);
+                option.legend.data.push(key);
+            }
+            ;
+            var x = XAxis();
+            for (var i = 0; i < return_val.length; i++) {
+                for (var key in return_val[i]) {
+                    {#                    if (key == 'saveTime') {#}
+                    {#                        continue;#}
+                    {#                    }#}
+                    if (key == 'axisTime') {
+                        x.data.push(return_val[i][key])
+                    } else if (content_key_filter(key, contents)) {
+                        option.series[contents[key]].data.push(return_val[i][key]);
+                    }
+                }
+
+            }
+            option.xAxis.push(x);
+            myChart.setOption(option, true);
+        });
+
+        setInterval(function () {
+                    var myChart = echarts.init(document.getElementById('main'));
+                    myChart.showLoading();
+                    var return_val = "";
+                    $.ajax({
+                        type: 'post',
+                        url: $SCRIPT_ROOT + '/gm/server/get_realtime_data',
+                        async: false,
+                        success: function (json) {
+                            return_val = eval('(' + json + ')');
+                            myChart.hideLoading();
+                        },
+                        error: function () {
+
+                        }
+                    });
+                    var option = myChart.getOption();
+                    var axisData = '';
+                    for (var key in return_val) {
+                        {#                        if (key == 'saveTime' || key == 'begin' || key == 'today_begin') {#}
+                        {#                            continue;#}
+                        {#                        }#}
+                        if (key == 'axisTime') {
+                            axisData = return_val['axisTime'].replace(/^\D*/, '');
+                        } else if (content_key_filter(key, contents)) {
+                            option.series[contents[key]].data.shift();
+                            option.series[contents[key]].data.push(return_val[key]);
+                        }
+                    }
+                    option.xAxis[0].data.shift();
+                    option.xAxis[0].data.push(axisData);
+                    myChart.setOption(option, true);
+                }
+                ,
+                30000
+        );
+
+        var Option = function () {
+            var o = {
+                title: {
+                    text: '',
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [],
+                },
+                xAxis: [],
+                yAxis: [{type: 'value'}],
+                series: [],
+            }
+
+            return o
+        }
+
+        var XAxis = function () {
+            var f = {
+                type: 'category',
+                data: [],
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }
+
+            return f
+        }
+
+        var YAxis = function () {
+            var f = {
+                type: 'value',
+                name: '',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }
+
+            return f
+        }
+
+        var Series = function () {
+            var s = {
+                name: '',
+                type: 'bar',
+                markPoint: {
+                    data: [
+                        {type: 'max', name: 'max'},
+                        {type: 'min', name: 'min'}
+                    ]
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: 'average'}
+                    ]
+                },
+                data: []
+            }
+
+            return s
+        }
+        function content_key_filter(check_key, contents) {
+            var has_key = false
+            for (var key in contents) {
+                if (check_key == key) {
+                    has_key = true
+                    break
+                }
+            }
+            return has_key
+        }
+    </script>
+{% endblock %}

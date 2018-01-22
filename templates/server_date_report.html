@@ -1,0 +1,81 @@
+{% set active_page = 'server_console' %}
+{% set active_side_nav_bar = 'date report' %}
+{% extends 'server_layout.html' %}
+{% block head %}
+    {{ super() }}
+    <link href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css"
+          rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css.map"
+          rel="stylesheet">
+{% endblock %}
+{% block main_content %}
+    <!-- Single button -->
+    <div class="row placeholders">
+        <div class="col-lg-6">
+            <div class="input-group date" id="picker">
+                <input type="text" class="form-control"
+                       placeholder=" select a date..."><span class="input-group-addon"><i
+                    class="glyphicon glyphicon-th"></i></span>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="createReport()">Go!</button>
+      </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div>
+    <table class="table table-striped table-hover table-responsive" id="dataTable" cellspacing="0"
+           width="100%">
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+    </script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        $('#picker').datepicker({
+            format: 'yyyy-mm-dd',
+            minViewMode: 'month',
+            todayBtn: 'linked',
+            todayHighlight: true,
+        });
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                lengthMenu: [25, 50],
+                columns: [
+                    {data: 'Item'},
+                    {data: 'Value'}
+                ]
+            });
+        });
+        function createReport() {
+            var params = {
+                'date': $('#picker').datepicker('getFormattedDate')
+            }
+            $.ajax({
+                type: 'post',
+                url: $SCRIPT_ROOT + "/gm/server/create_report/date_report",
+                data: params,
+                async: false,
+                success: function (resp) {
+                    var return_val = eval(resp);
+                    var table = $('#dataTable').DataTable();
+                    table.clear();
+                    table.rows.add(return_val).draw();
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+{% endblock %}

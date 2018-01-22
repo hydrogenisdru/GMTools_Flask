@@ -1,0 +1,100 @@
+Exception on /gm/gmtools/upload_server_config [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 356, in gm_tools_upload_server_config
+    file = request.files.getlist['inputfile[]']
+TypeError: 'instancemethod' object has no attribute '__getitem__'
+Exception on /gm/gmtools/upload_server_config [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 409, in gm_tools_upload_server_config
+    update_config_ntf.configName = changed_files
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 440, in setter
+    '"%s" in protocol message object.' % proto_field_name)
+AttributeError: Assignment not allowed to repeated field "configName" in protocol message object.
+Exception on /gm/gmtools/upload_server_config [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 410, in gm_tools_upload_server_config
+    update_config_ntf.configName.Add(changed_file)
+AttributeError: 'RepeatedScalarFieldContainer' object has no attribute 'Add'
+Exception on /gm/gmtools/upload_cdn_file [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 509, in gm_tools_upload_cdn_config
+    if cdn_updater.upload_file(cos_path=folder_path, local_path=local_path):
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/cdnUpdater.py", line 130, in upload_file
+    uq_ret = self.cos_client.update_file(uq)
+  File "/usr/local/lib/python2.7/site-packages/qcloud_cos/cos_client.py", line 156, in update_file
+    assert isinstance(request, UpdateFileRequest)
+AssertionError
+Exception on /gm/gmtools/upload_cdn_file [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 495, in gm_tools_upload_cdn_config
+    if cdn_updater.upload_file(cos_path=folder_path, local_path=local_path):
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/cdnUpdater.py", line 130, in upload_file
+    uq_ret = self.cos_client.update_file(uq)
+  File "/usr/local/lib/python2.7/site-packages/qcloud_cos/cos_client.py", line 156, in update_file
+    assert isinstance(request, UpdateFileRequest)
+AssertionError
+Exception on /gm/gmtools/upload_cdn_file [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 519, in gm_tools_upload_cdn_config
+    upload_files.append(cos_path)
+AttributeError: 'dict' object has no attribute 'append'

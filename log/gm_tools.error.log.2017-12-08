@@ -1,0 +1,227 @@
+Exception on /gm/server/get_realtime_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 699, in get_realtime_data
+    p = query_new_player_count(now)
+TypeError: query_new_player_count() takes exactly 2 arguments (1 given)
+Exception on /gm/server/get_realtime_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 701, in get_realtime_data
+    np = query_new_pay_count(now=now, before=ten_minutes)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 1037, in query_new_pay_count
+    p = mongo.db.order_platform.find({'date': {'$and': [{'$lt': now}, {'$gt': before}]}}).count()
+  File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 711, in count
+    return self.__collection._count(cmd, self.__collation)
+  File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 1310, in _count
+    collation=collation)
+  File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 232, in _command
+    collation=collation)
+  File "/usr/local/lib/python2.7/site-packages/pymongo/pool.py", line 419, in command
+    collation=collation)
+  File "/usr/local/lib/python2.7/site-packages/pymongo/network.py", line 116, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/usr/local/lib/python2.7/site-packages/pymongo/helpers.py", line 210, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+OperationFailure: unknown operator: $and
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 716, in get_realtime_data
+    mongo_analysis.history_data.insert_one(result)
+AttributeError: 'PyMongo' object has no attribute 'history_data'
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 717, in get_realtime_data
+    return demjson.encode(result, encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('5a29a116a54d750bc3900ddc'))
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 717, in get_realtime_data
+    return demjson.encode(result, encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('5a29a134a54d750bc3900ddd'))
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 717, in get_realtime_data
+    return demjson.encode(result, encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('5a29a137a54d750bc3900dde'))
+Exception on /gm/server/get_history_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 698, in get_history_data
+    return demjson.encode(history_data, encoding='utf-8')
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5557, in encode
+    output = j.encode( obj, encoding )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5111, in encode
+    self._do_encode( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5386, in encode_composite
+    self._do_encode( obj2, substate )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5390, in encode_composite
+    self._do_encode( obj3, substate2 )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5191, in _do_encode
+    self.encode_composite( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5441, in encode_composite
+    self.try_encode_default( obj, state )
+  File "/usr/local/lib/python2.7/site-packages/demjson.py", line 5483, in try_encode_default
+    raise JSONEncodeError('can not encode object into a JSON representation',obj)
+JSONEncodeError: ('can not encode object into a JSON representation', ObjectId('5a29a3bca54d750be523180e'))
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 722, in get_realtime_data
+    ti, tp = query_today_income(today_now=now, today_begin=test_begin)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 1068, in query_today_income
+    if not mongo_analysis.db.paying_player.find_one({'playerId': uuid}) and not today_pay.has_key(uuid):
+AttributeError: 'set' object has no attribute 'has_key'
+Exception on /gm/server/get_realtime_data [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 722, in get_realtime_data
+    ti, tp = query_today_income(today_now=now, today_begin=test_begin)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 1068, in query_today_income
+    if not mongo_analysis.db.paying_player.find_one({'playerId': uuid}) and not today_pay.has_key(uuid):
+AttributeError: 'set' object has no attribute 'has_key'

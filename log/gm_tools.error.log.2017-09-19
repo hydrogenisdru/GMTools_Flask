@@ -1,0 +1,99 @@
+Exception on /gm/gmtools/announcement [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 130, in gm_tools_announcement
+    active_pane='announcement', cos_path=cos_path)
+  File "/usr/local/lib/python2.7/site-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/gm_tools_announcement.html", line 42, in template
+    {% block dropdown %}
+TemplateAssertionError: block 'dropdown' defined twice
+Exception on /gm/gmtools/announcement [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 130, in gm_tools_announcement
+    active_pane='announcement', cos_path=cos_path)
+  File "/usr/local/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/usr/local/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/gm_tools_announcement.html", line 3, in top-level template code
+    {% extends 'gm_tools_layout.html' %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/gm_tools_layout.html", line 23, in top-level template code
+    {% extends 'side_nav_bar_layout.html' %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/side_nav_bar_layout.html", line 1, in top-level template code
+    {% extends 'layout.html' %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/layout.html", line 8, in top-level template code
+    {% set authority_list = [('none','none'),('gm_1','gm_1'),('gm_2','gm_2'),('gm_3','gm_3')] %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/base.html", line 21, in block "html"
+    {% block body -%}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/base.html", line 24, in block "body"
+    {% block content -%}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/layout.html", line 54, in block "content"
+    {% block page_content %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/side_nav_bar_layout.html", line 7, in block "page_content"
+    {% block side_nav_bar %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/side_nav_bar_layout.html", line 31, in block "side_nav_bar"
+    {% block main_content %}
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/templates/gm_tools_announcement.html", line 35, in block "main_content"
+    {% for name,path in cos_path %}
+ValueError: too many values to unpack
+Exception on /gm/gmtools/announcement [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zouyang/PycharmProjects/GMTools_Flask/route.py", line 125, in gm_tools_announcement
+    extra = demjson.decode(announcement_form.markdown.extra, encoding='utf-8')
+AttributeError: 'TextAreaField' object has no attribute 'extra'

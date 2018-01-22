@@ -1,11 +1,15 @@
 #!/usr/bin/env python
-import os
+import os, sys
 
 from flask_script import Manager, Shell
 from application import create_app, mongo
-from route import bluePrint,generate_password_hash
+from route import bluePrint, generate_password_hash
 
-print '1'
+default_encoding = 'utf-8'
+
+if sys.getdefaultencoding() != default_encoding:
+    reload(sys)
+    sys.setdefaultencoding(default_encoding)
 
 config_name = os.getenv('FLASK_CONFIG') or 'production'
 app = create_app(config_name)

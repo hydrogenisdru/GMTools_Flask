@@ -1,5 +1,8 @@
 {% set side_nav_bar = [
     (url_for('.server_console'), 'overview', 'overview'),
     (url_for('.server_report'), 'report', 'report'),
+    (url_for('.server_date_report'), 'date report', 'date report'),
+    (url_for('.server_battle_date_report'), 'battle date report', 'battle date report'),
+    (url_for('.server_realtime_report'), 'realtime_report', 'realtime_report'),
 ] %}
 {% extends 'side_nav_bar_layout.html' %}

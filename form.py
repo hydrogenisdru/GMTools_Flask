@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, HiddenField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, HiddenField, SelectField, \
+    IntegerField
 from wtforms.validators import DataRequired, Length
 
 AUTHORITY_LIST = [('none', 'none'), ('admin', 'admin'), ('gm_1', 'gm_1'), ('gm_2', 'gm_2'), ('gm_3', 'gm_3')]
@@ -45,3 +46,15 @@ class SumbitForm(FlaskForm):
 class Notice(FlaskForm):
     markdown = TextAreaField('markdown', validators=[DataRequired()])
     submit = SubmitField('submit')
+
+
+class NoticeWithExtraData(FlaskForm):
+    markdown = TextAreaField('markdown', validators=[DataRequired()])
+    extra = TextAreaField('extra', validators=[DataRequired()])
+    submit = SubmitField('submit')
+
+
+class CdKey(FlaskForm):
+    gifid = StringField('gifid', validators=[DataRequired()])
+    pname = StringField('pname', validators=[DataRequired(), Length(1, 200)])
+    knum = StringField('knum', validators=[DataRequired()])
